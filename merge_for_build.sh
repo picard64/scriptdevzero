@@ -6,3 +6,4 @@ git checkout build
 
 # for each patch branch there is, create a new entry
 #   git merge somebranchname
+git merge windows_build_fix
