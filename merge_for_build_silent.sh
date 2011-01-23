@@ -13,8 +13,7 @@ for i in $BRANCHES
 do
   echo "Start mergeing branch $i"
   git merge "$i"
- 
-  fi
+
   if [ "$?" != "0" ]
   then
     ## Something went wrong
