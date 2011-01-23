@@ -1566,7 +1566,7 @@
 				<Tool
 					Name="VCCustomBuildTool"
 					Description="Extracting revision"
-					CommandLine="cd &quot;$(SolutionDir)&quot;&#x0D;&#x0A;&quot;$(SolutionDir)..\..\..\win\VC90\genrevision__Win32_$(ConfigurationName)\genrevision.exe&quot;&#x0D;&#x0A;"
+					CommandLine="cd &quot;$(SolutionDir)&quot;&#x0D;&#x0A;&quot;$(SolutionDir)\VC90\genrevision__Win32_$(ConfigurationName)\genrevision.exe&quot;&#x0D;&#x0A;"
 					AdditionalDependencies=".svn/entries"
 					Outputs="revision.h"
 				/>
@@ -1577,7 +1577,7 @@
 				<Tool
 					Name="VCCustomBuildTool"
 					Description="Extracting revision"
-					CommandLine="cd &quot;$(SolutionDir)&quot;&#x0D;&#x0A;&quot;$(SolutionDir)..\..\..\win\VC90\genrevision__Win32_$(ConfigurationName)\genrevision.exe&quot;&#x0D;&#x0A;"
+					CommandLine="cd &quot;$(SolutionDir)&quot;&#x0D;&#x0A;&quot;$(SolutionDir)\VC90\genrevision__Win32_$(ConfigurationName)\genrevision.exe&quot;&#x0D;&#x0A;"
 					AdditionalDependencies=".svn/entries"
 					Outputs="revision.h"
 				/>
@@ -1588,7 +1588,7 @@
 				<Tool
 					Name="VCCustomBuildTool"
 					Description="Extracting revision"
-					CommandLine="cd &quot;$(SolutionDir)&quot;&#x0D;&#x0A;&quot;$(SolutionDir)..\..\..\win\VC90\genrevision__Win32_$(ConfigurationName)\genrevision.exe&quot;&#x0D;&#x0A;"
+					CommandLine="cd &quot;$(SolutionDir)&quot;&#x0D;&#x0A;&quot;$(SolutionDir)\VC90\genrevision__Win32_$(ConfigurationName)\genrevision.exe&quot;&#x0D;&#x0A;"
 					AdditionalDependencies=".svn/entries"
 					Outputs="revision.h"
 				/>
@@ -1599,7 +1599,7 @@
 				<Tool
 					Name="VCCustomBuildTool"
 					Description="Extracting revision"
-					CommandLine="cd &quot;$(SolutionDir)&quot;&#x0D;&#x0A;&quot;$(SolutionDir)..\..\..\win\VC90\genrevision__Win32_$(ConfigurationName)\genrevision.exe&quot;&#x0D;&#x0A;"
+					CommandLine="cd &quot;$(SolutionDir)&quot;&#x0D;&#x0A;&quot;$(SolutionDir)\VC90\genrevision__Win32_$(ConfigurationName)\genrevision.exe&quot;&#x0D;&#x0A;"
 					AdditionalDependencies=".svn/entries"
 					Outputs="revision.h"
 				/>
