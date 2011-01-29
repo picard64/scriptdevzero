@@ -260,7 +260,7 @@ struct MANGOS_DLL_DECL boss_kelthuzadAI : public ScriptedAI
         MaNGOS::NormalizeMapCoord(fY);
 
         uint32 uiNpcEntry = NPC_SOUL_WEAVER;
-        
+
         for(uint8 uiI = 0; uiI < 14; ++uiI)
         {
             if (uiI > 0)
@@ -322,7 +322,7 @@ struct MANGOS_DLL_DECL boss_kelthuzadAI : public ScriptedAI
                 {
                     m_lAddsSet.insert(pSummoned->GetGUID());
 
-                    if(m_pInstance)
+                    if (m_pInstance)
                     {
                         float fX, fY, fZ;
                         m_pInstance->GetChamberCenterCoords(fX, fY, fZ);
