@@ -147,6 +147,11 @@ UPDATE creature_template SET ScriptName='npc_kharan_mighthammer' WHERE entry=902
 UPDATE creature_template SET ScriptName='npc_rocknot' WHERE entry=9503;
 UPDATE gameobject_template SET ScriptName='go_shadowforge_brazier' WHERE entry IN (174744, 174745);
 UPDATE creature_template SET ScriptName='npc_theldren_trigger' WHERE entry=16079;
+UPDATE creature_template SET ScriptName ='npc_dughal_stormwing' WHERE entry=9022;
+UPDATE creature_template SET ScriptName ='npc_marshal_windsor' WHERE entry=9023;
+UPDATE creature_template SET ScriptName ='npc_marshal_reginald_windsor' WHERE entry=9682;
+UPDATE creature_template SET ScriptName ='npc_tobias_seecher' WHERE entry=9679;
+UPDATE gameobject_template SET ScriptName ='go_cell_door' WHERE entry IN (170561, 170562, 170566, 170567, 170568, 170569);
 
 /* BLACKROCK SPIRE */
 UPDATE instance_template SET ScriptName='instance_blackrock_spire' WHERE map=229;
@@ -287,7 +292,6 @@ UPDATE creature_template SET ScriptName='boss_golemagg' WHERE entry=11988;
 UPDATE creature_template SET ScriptName='boss_sulfuron' WHERE entry=12098;
 UPDATE creature_template SET ScriptName='boss_majordomo' WHERE entry=12018;
 UPDATE creature_template SET ScriptName='boss_ragnaros' WHERE entry=11502;
-UPDATE creature_template SET ScriptName='mob_ancient_core_hound' WHERE entry=11673;
 UPDATE creature_template SET ScriptName='mob_firesworn' WHERE entry=12099;
 UPDATE creature_template SET ScriptName='mob_core_rager' WHERE entry=11672;
 UPDATE creature_template SET ScriptName='mob_flamewaker_priest' WHERE entry=11662;
@@ -335,10 +339,12 @@ UPDATE creature_template SET ScriptName='npc_thrall_warchief' WHERE entry=4949;
 
 /* RAGEFIRE CHASM */
 
-
 /* RAZORFEN DOWNS */
 UPDATE creature_template SET ScriptName='boss_amnennar_the_coldbringer' WHERE entry=7358;
 UPDATE creature_template SET ScriptName='npc_henry_stern' WHERE entry=8696;
+
+/* RAZORFEN KRAUL */
+UPDATE instance_template SET ScriptName='instance_razorfen_kraul' WHERE map=47;
 
 /* REDRIDGE MOUNTAINS */
 UPDATE creature_template SET ScriptName='npc_corporal_keeshan' WHERE entry=349;
@@ -361,21 +367,15 @@ UPDATE creature_template SET ScriptName='boss_high_inquisitor_whitemane' WHERE e
 UPDATE creature_template SET ScriptName='boss_houndmaster_loksey' WHERE entry=3974;
 UPDATE creature_template SET ScriptName='boss_interrogator_vishas' WHERE entry=3983;
 UPDATE creature_template SET ScriptName='boss_scarlet_commander_mograine' WHERE entry=3976;
+UPDATE creature_template SET ScriptName='boss_scorn' WHERE entry=14693;
 UPDATE creature_template SET ScriptName='mob_scarlet_trainee' WHERE entry=6575;
 
 /* SCHOLOMANCE */
 UPDATE instance_template SET ScriptName='instance_scholomance' WHERE map=289;
 UPDATE creature_template SET ScriptName='boss_darkmaster_gandling' WHERE entry=1853;
 UPDATE creature_template SET ScriptName='boss_death_knight_darkreaver' WHERE entry=14516;
-UPDATE creature_template SET ScriptName='boss_lord_alexei_barov' WHERE entry=10504;
-UPDATE creature_template SET ScriptName='boss_instructor_malicia' WHERE entry=10505;
-UPDATE creature_template SET ScriptName='boss_boss_ras_frostwhisper' WHERE entry=10508;
-UPDATE creature_template SET ScriptName='boss_the_ravenian' WHERE entry=10507;
 UPDATE creature_template SET ScriptName='boss_vectus' WHERE entry=10432;
-UPDATE creature_template SET ScriptName='boss_illucia_barov' WHERE entry=10502;
-UPDATE creature_template SET ScriptName='boss_doctor_theolen_krastinov' WHERE entry=11261;
 UPDATE creature_template SET ScriptName='boss_jandice_barov' WHERE entry=10503;
-UPDATE creature_template SET ScriptName='boss_lorekeeper_polkelt' WHERE entry=10901;
 UPDATE creature_template SET ScriptName='boss_kormok' WHERE entry=16118;
 UPDATE creature_template SET ScriptName='mob_illusionofjandicebarov' WHERE entry=11439;
 
@@ -494,9 +494,14 @@ UPDATE gameobject_template SET ScriptName='go_mausoleum_door' WHERE entry=176594
 UPDATE creature_template SET ScriptName='npc_calvin_montague' WHERE entry=6784;
 
 /* ULDAMAN */
-UPDATE creature_template SET ScriptName='boss_ironaya' WHERE entry=7228;
-UPDATE creature_template SET ScriptName='mob_jadespine_basilisk' WHERE entry=4863;
+DELETE FROM scripted_event_id WHERE id IN (2228,2268);
+INSERT INTO scripted_event_id VALUES
+(2228,'event_spell_altar_boss_aggro'),
+(2268,'event_spell_altar_boss_aggro');
+UPDATE creature_template SET ScriptName='boss_archaedas' WHERE entry=2748;
+UPDATE creature_template SET ScriptName='mob_archaeras_add' WHERE entry IN (7309,7076,7077,10120);
 UPDATE creature_template SET ScriptName='npc_lore_keeper_of_norgannon' WHERE entry=7172;
+UPDATE instance_template SET ScriptName='instance_uldaman' WHERE map=70;
 
 
 /* UN'GORO CRATER */
@@ -509,40 +514,8 @@ UPDATE creature_template SET ScriptName='npc_highborne_lamenter' WHERE entry=216
 UPDATE creature_template SET ScriptName='npc_parqual_fintallas' WHERE entry=4488;
 
 /* WAILING CAVERNS */
-/* Wailing Caverns Encounters (TYPE_ data) */
-DELETE FROM creature_ai_scripts WHERE creature_id IN (3671,3669,3670,3673,3654) AND (action1_type = 34 OR action2_type = 34 OR action3_type = 34);
-INSERT INTO creature_ai_scripts (`creature_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_type`, `action1_param1`, `action1_param2`, `action1_param3`, `comment`)  VALUES
-('3669','7','0','100','2','0','0','0','0','34','1','0','0','Lord Cobrahn - Data Type 0 on Evade'),
-('3669','4','0','100','2','0','0','0','0','34','1','1','0','Lord Cobrahn - Data Type 1 on Aggro'),
-('3669','6','0','100','2','0','0','0','0','34','1','3','0','Lord Cobrahn - Data Type 2 on Death'),
-
-('3670','7','0','100','2','0','0','0','0','34','2','0','0','Lord Pythas - Data Type 0 on Evade'),
-('3670','4','0','100','2','0','0','0','0','34','2','1','0','Lord Pythas - Data Type 1 on Aggro'),
-('3670','6','0','100','2','0','0','0','0','34','2','3','0','Lord Pythas - Data Type 2 on Death'),
-
-('3671','7','0','100','2','0','0','0','0','34','0','0','0','Lady Anacondra - Data Type 0 on Evade'),
-('3671','4','0','100','2','0','0','0','0','34','0','1','0','Lady Anacondra - Data Type 1 on Aggro'),
-('3671','6','0','100','2','0','0','0','0','34','0','3','0','Lady Anacondra - Data Type 2 on Death'),
-
-('3673','7','0','100','2','0','0','0','0','34','3','0','0','Lord Serpentis - Data Type 0 on Evade'),
-('3673','4','0','100','2','0','0','0','0','34','3','1','0','Lord Serpentis - Data Type 1 on Aggro'),
-('3673','6','0','100','2','0','0','0','0','34','3','3','0','Lord Serpentis - Data Type 2 on Death'),
-
-('3654','7','0','100','2','0','0','0','0','34','5','0','0','Mutanous the Devourer - Data Type 0 on Evade'),
-('3654','4','0','100','2','0','0','0','0','34','5','1','0','Mutanous the Devourer - Data Type 1 on Aggro'),
-('3654','6','0','100','2','0','0','0','0','34','5','3','0','Mutanous the Devourer - Data Type 2 on Death');
-
-DELETE FROM spell_target_position WHERE id = 8136;
-INSERT INTO spell_target_position VALUES
-(8136,43,116.35,239.8,-95.08,3.1);
-
-DELETE FROM npc_gossip WHERE npc_guid = 18675;
-INSERT INTO npc_gossip VALUES
-(18675,698);
 UPDATE instance_template SET ScriptName='instance_wailing_caverns' WHERE map=43;
-
-/* disciple of naralex */
-UPDATE creature_template SET ScriptName = 'npc_disciple_of_naralex' WHERE entry = 3678;
+UPDATE creature_template SET ScriptName='npc_disciple_of_naralex' WHERE entry=3678;
 
 
 /* WESTERN PLAGUELANDS  */

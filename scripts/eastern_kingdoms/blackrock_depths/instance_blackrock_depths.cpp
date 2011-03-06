@@ -36,10 +36,19 @@ instance_blackrock_depths::instance_blackrock_depths(Map* pMap) : ScriptedInstan
     m_uiDoomrelGUID(0),
     m_uiDoperelGUID(0),
 
+    m_uiOgrabisiGUID(0),
+    m_uiShillGUID(0),
+    m_uiCrestGUID(0),
+    m_uiJazGUID(0),
+
     m_uiGoArena1GUID(0),
     m_uiGoArena2GUID(0),
     m_uiGoArena3GUID(0),
     m_uiGoArena4GUID(0),
+
+    m_uiGoJailSupplyRoomGUID(0),
+    m_uiGoJailSupplyCrateGUID(0),
+
     m_uiGoShadowLockGUID(0),
     m_uiGoShadowMechGUID(0),
     m_uiGoShadowGiantGUID(0),
@@ -63,6 +72,7 @@ instance_blackrock_depths::instance_blackrock_depths(Map* pMap) : ScriptedInstan
     m_fArenaCenterX(0.0f),
     m_fArenaCenterY(0.0f),
     m_fArenaCenterZ(0.0f)
+
 {
     Initialize();
 }
@@ -70,6 +80,39 @@ instance_blackrock_depths::instance_blackrock_depths(Map* pMap) : ScriptedInstan
 void instance_blackrock_depths::Initialize()
 {
     memset(&m_auiEncounter, 0, sizeof(m_auiEncounter));
+    SetOpenedDoor(GO_JAIL_DOOR_DUGHAL, false);
+    SetOpenedDoor(GO_JAIL_DOOR_TOBIAS, false);
+    SetOpenedDoor(GO_JAIL_DOOR_JAZ,    false);
+    SetOpenedDoor(GO_JAIL_DOOR_CREST,  false);
+    SetOpenedDoor(GO_JAIL_DOOR_SHILL,  false);
+    SetOpenedDoor(GO_JAIL_DOOR_SUPPLY, false);
+}
+
+void instance_blackrock_depths::SetOpenedDoor(uint64 m_uiGoEntry, bool opened)
+{
+    switch(m_uiGoEntry)
+    {
+        case GO_JAIL_DOOR_DUGHAL: m_bDoorDughalOpened = opened; break;
+        case GO_JAIL_DOOR_TOBIAS: m_bDoorTobiasOpened = opened; break;
+        case GO_JAIL_DOOR_CREST:  m_bDoorCrestOpened  = opened; break;
+        case GO_JAIL_DOOR_JAZ:    m_bDoorJazOpened    = opened; break;
+        case GO_JAIL_DOOR_SHILL:  m_bDoorShillOpened  = opened; break;
+        case GO_JAIL_DOOR_SUPPLY: m_bDoorSupplyOpened = opened; break;
+    }
+}
+
+bool instance_blackrock_depths::GetOpenedDoor(uint64 m_uiGoEntry)
+{
+    switch(m_uiGoEntry)
+    {
+        case GO_JAIL_DOOR_DUGHAL: return m_bDoorDughalOpened;
+        case GO_JAIL_DOOR_TOBIAS: return m_bDoorTobiasOpened;
+        case GO_JAIL_DOOR_CREST:  return m_bDoorCrestOpened;
+        case GO_JAIL_DOOR_JAZ:    return m_bDoorJazOpened;
+        case GO_JAIL_DOOR_SHILL:  return m_bDoorShillOpened;
+        case GO_JAIL_DOOR_SUPPLY: return m_bDoorSupplyOpened;
+    }
+    return false;
 }
 
 void instance_blackrock_depths::OnCreatureCreate(Creature* pCreature)
@@ -86,6 +129,10 @@ void instance_blackrock_depths::OnCreatureCreate(Creature* pCreature)
         case NPC_SEETHREL: m_uiSeethrelGUID = pCreature->GetGUID(); break;
         case NPC_DOOMREL:  m_uiDoomrelGUID =  pCreature->GetGUID(); break;
         case NPC_DOPEREL:  m_uiDoperelGUID =  pCreature->GetGUID(); break;
+        case NPC_OGRABISI: m_uiOgrabisiGUID = pCreature->GetGUID(); break;
+        case NPC_SHILL:    m_uiShillGUID = pCreature->GetGUID(); break;
+        case NPC_CREST:    m_uiCrestGUID =  pCreature->GetGUID(); break;
+        case NPC_JAZ:      m_uiJazGUID =  pCreature->GetGUID(); break;
     }
 }
 
@@ -97,6 +144,10 @@ void instance_blackrock_depths::OnObjectCreate(GameObject* pGo)
         case GO_ARENA_2:            m_uiGoArena2GUID = pGo->GetGUID(); break;
         case GO_ARENA_3:            m_uiGoArena3GUID = pGo->GetGUID(); break;
         case GO_ARENA_4:            m_uiGoArena4GUID = pGo->GetGUID(); break;
+
+        case GO_JAIL_DOOR_SUPPLY:   m_uiGoJailSupplyRoomGUID = pGo->GetGUID(); break;
+        case GO_JAIL_SUPPLY_CRATE:  m_uiGoJailSupplyCrateGUID = pGo->GetGUID(); break;
+
         case GO_SHADOW_LOCK:        m_uiGoShadowLockGUID = pGo->GetGUID(); break;
         case GO_SHADOW_MECHANISM:   m_uiGoShadowMechGUID = pGo->GetGUID(); break;
         case GO_SHADOW_GIANT_DOOR:  m_uiGoShadowGiantGUID = pGo->GetGUID(); break;
@@ -180,6 +231,29 @@ void instance_blackrock_depths::SetData(uint32 uiType, uint32 uiData)
             }
             m_auiEncounter[5] = uiData;
             break;
+        case TYPE_QUEST_JAIL_BREAK:
+            if (uiData == FAIL)
+            {
+                Map::PlayerList const &PlayerList = instance->GetPlayers();
+
+                for (Map::PlayerList::const_iterator itr = PlayerList.begin(); itr != PlayerList.end(); ++itr)
+                {
+                Player* pPlayer = itr->getSource();
+                if (pPlayer && pPlayer->GetQuestStatus(QUEST_JAIL_BREAK) == QUEST_STATUS_INCOMPLETE)
+                    pPlayer->SendQuestFailed(QUEST_JAIL_BREAK);
+                }
+            }
+            m_auiEncounter[6] = uiData;
+            break;
+        case TYPE_JAIL_DUGHAL:
+            m_auiEncounter[7] = uiData;
+            break;
+        case TYPE_JAIL_SUPPLY_ROOM:
+            m_auiEncounter[8] = uiData;
+            break;
+        case TYPE_JAIL_TOBIAS:
+            m_auiEncounter[9] = uiData;
+            break;
     }
 
     if (uiData == DONE)
@@ -216,6 +290,14 @@ uint32 instance_blackrock_depths::GetData(uint32 uiType)
             return m_auiEncounter[4];
         case TYPE_IRON_HALL:
             return m_auiEncounter[5];
+        case TYPE_QUEST_JAIL_BREAK:
+            return m_auiEncounter[6];
+        case TYPE_JAIL_DUGHAL:
+            return m_auiEncounter[7];
+        case TYPE_JAIL_SUPPLY_ROOM:
+            return m_auiEncounter[8];
+        case TYPE_JAIL_TOBIAS:
+            return m_auiEncounter[9];
         default:
             return 0;
     }
@@ -235,11 +317,19 @@ uint64 instance_blackrock_depths::GetData64(uint32 uiData)
         case NPC_SEETHREL:          return m_uiSeethrelGUID;
         case NPC_DOOMREL:           return m_uiDoomrelGUID;
         case NPC_DOPEREL:           return m_uiDoperelGUID;
+        case NPC_OGRABISI:          return m_uiOgrabisiGUID;
+        case NPC_SHILL:             return  m_uiShillGUID;
+        case NPC_CREST:             return  m_uiCrestGUID;
+        case NPC_JAZ:               return m_uiJazGUID;
 
         case GO_ARENA_1:            return m_uiGoArena1GUID;
         case GO_ARENA_2:            return m_uiGoArena2GUID;
         case GO_ARENA_3:            return m_uiGoArena3GUID;
         case GO_ARENA_4:            return m_uiGoArena4GUID;
+
+        case GO_JAIL_DOOR_SUPPLY:   return m_uiGoJailSupplyRoomGUID;
+        case GO_JAIL_SUPPLY_CRATE:  return m_uiGoJailSupplyCrateGUID;
+
         case GO_BAR_KEG_SHOT:       return m_uiGoBarKegGUID;
         case GO_BAR_KEG_TRAP:       return m_uiGoBarKegTrapGUID;
         case GO_BAR_DOOR:           return m_uiGoBarDoorGUID;

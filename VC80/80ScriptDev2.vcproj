@@ -716,6 +716,10 @@
 						>
 					</File>
 					<File
+						RelativePath="..\scripts\kalimdor\wailing_caverns\wailing_caverns.cpp"
+						>
+					</File>
+					<File
 						RelativePath="..\scripts\kalimdor\wailing_caverns\wailing_caverns.h"
 						>
 					</File>
@@ -1220,39 +1224,11 @@
 						>
 					</File>
 					<File
-						RelativePath="..\scripts\eastern_kingdoms\scholomance\boss_doctor_theolen_krastinov.cpp"
-						>
-					</File>
-					<File
-						RelativePath="..\scripts\eastern_kingdoms\scholomance\boss_illucia_barov.cpp"
-						>
-					</File>
-					<File
-						RelativePath="..\scripts\eastern_kingdoms\scholomance\boss_instructor_malicia.cpp"
-						>
-					</File>
-					<File
 						RelativePath="..\scripts\eastern_kingdoms\scholomance\boss_jandice_barov.cpp"
 						>
 					</File>
 					<File
 						RelativePath="..\scripts\eastern_kingdoms\scholomance\boss_kormok.cpp"
-						>
-					</File>
-					<File
-						RelativePath="..\scripts\eastern_kingdoms\scholomance\boss_lord_alexei_barov.cpp"
-						>
-					</File>
-					<File
-						RelativePath="..\scripts\eastern_kingdoms\scholomance\boss_lorekeeper_polkelt.cpp"
-						>
-					</File>
-					<File
-						RelativePath="..\scripts\eastern_kingdoms\scholomance\boss_ras_frostwhisper.cpp"
-						>
-					</File>
-					<File
-						RelativePath="..\scripts\eastern_kingdoms\scholomance\boss_the_ravenian.cpp"
 						>
 					</File>
 					<File
@@ -1348,11 +1324,23 @@
 					Name="uldaman"
 					>
 					<File
+						RelativePath="..\scripts\eastern_kingdoms\uldaman\boss_archaedas.cpp"
+						>
+					</File>
+					<File
 						RelativePath="..\scripts\eastern_kingdoms\uldaman\boss_ironaya.cpp"
 						>
 					</File>
 					<File
 						RelativePath="..\scripts\eastern_kingdoms\uldaman\uldaman.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\scripts\eastern_kingdoms\uldaman\uldaman.h"
+						>
+					</File>
+					<File
+						RelativePath="..\scripts\eastern_kingdoms\uldaman\instance_uldaman.cpp"
 						>
 					</File>
 				</Filter>

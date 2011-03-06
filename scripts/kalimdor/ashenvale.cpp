@@ -211,7 +211,7 @@ bool QuestAccept_npc_muglash(Player* pPlayer, Creature* pCreature, const Quest* 
             DoScriptText(SAY_MUG_START1, pCreature);
             pCreature->setFaction(FACTION_ESCORT_H_PASSIVE);
 
-            pEscortAI->Start(false, false, pPlayer->GetGUID(), pQuest);
+            pEscortAI->Start(false, pPlayer->GetGUID(), pQuest);
         }
     }
 
@@ -292,7 +292,7 @@ bool QuestAccept_npc_ruul_snowhoof(Player* pPlayer, Creature* pCreature, const Q
         pCreature->SetStandState(UNIT_STAND_STATE_STAND);
 
         if (npc_ruul_snowhoofAI* pEscortAI = dynamic_cast<npc_ruul_snowhoofAI*>(pCreature->AI()))
-            pEscortAI->Start(true, false, pPlayer->GetGUID(), pQuest);
+            pEscortAI->Start(false, pPlayer->GetGUID(), pQuest);
     }
     return true;
 }
@@ -407,7 +407,7 @@ bool QuestAccept_npc_torek(Player* pPlayer, Creature* pCreature, const Quest* pQ
         DoScriptText(SAY_READY, pCreature, pPlayer);
 
         if (npc_torekAI* pEscortAI = dynamic_cast<npc_torekAI*>(pCreature->AI()))
-            pEscortAI->Start(true, true, pPlayer->GetGUID(), pQuest);
+            pEscortAI->Start(true, pPlayer->GetGUID(), pQuest);
     }
 
     return true;
@@ -420,28 +420,28 @@ CreatureAI* GetAI_npc_torek(Creature* pCreature)
 
 void AddSC_ashenvale()
 {
-    Script *newscript;
+    Script* pNewScript;
 
-    newscript = new Script;
-    newscript->Name = "npc_muglash";
-    newscript->GetAI = &GetAI_npc_muglash;
-    newscript->pQuestAcceptNPC = &QuestAccept_npc_muglash;
-    newscript->RegisterSelf();
+    pNewScript = new Script;
+    pNewScript->Name = "npc_muglash";
+    pNewScript->GetAI = &GetAI_npc_muglash;
+    pNewScript->pQuestAcceptNPC = &QuestAccept_npc_muglash;
+    pNewScript->RegisterSelf();
 
-    newscript = new Script;
-    newscript->Name = "go_naga_brazier";
-    newscript->pGOUse = &GOUse_go_naga_brazier;
-    newscript->RegisterSelf();
+    pNewScript = new Script;
+    pNewScript->Name = "go_naga_brazier";
+    pNewScript->pGOUse = &GOUse_go_naga_brazier;
+    pNewScript->RegisterSelf();
 
-    newscript = new Script;
-    newscript->Name = "npc_ruul_snowhoof";
-    newscript->GetAI = &GetAI_npc_ruul_snowhoofAI;
-    newscript->pQuestAcceptNPC = &QuestAccept_npc_ruul_snowhoof;
-    newscript->RegisterSelf();
+    pNewScript = new Script;
+    pNewScript->Name = "npc_ruul_snowhoof";
+    pNewScript->GetAI = &GetAI_npc_ruul_snowhoofAI;
+    pNewScript->pQuestAcceptNPC = &QuestAccept_npc_ruul_snowhoof;
+    pNewScript->RegisterSelf();
 
-    newscript = new Script;
-    newscript->Name = "npc_torek";
-    newscript->GetAI = &GetAI_npc_torek;
-    newscript->pQuestAcceptNPC = &QuestAccept_npc_torek;
-    newscript->RegisterSelf();
+    pNewScript = new Script;
+    pNewScript->Name = "npc_torek";
+    pNewScript->GetAI = &GetAI_npc_torek;
+    pNewScript->pQuestAcceptNPC = &QuestAccept_npc_torek;
+    pNewScript->RegisterSelf();
 }

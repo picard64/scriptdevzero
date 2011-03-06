@@ -27,7 +27,6 @@ npc_morokk
 npc_nat_pagle
 npc_ogron
 npc_private_hendel
-npc_cassa_crimsonwing
 EndContentData */
 
 #include "precompiled.h"
@@ -39,8 +38,8 @@ EndContentData */
 
 enum
 {
-    QUEST_JAINAS_AUTOGRAPH = 558,
-    SPELL_JAINAS_AUTOGRAPH = 23122
+    QUEST_JAINAS_AUTOGRAPH    = 558,
+    SPELL_JAINAS_AUTOGRAPH    = 23122
 };
 
 #define GOSSIP_ITEM_JAINA "I know this is rather silly but i have a young ward who is a bit shy and would like your autograph."
@@ -74,13 +73,13 @@ bool GossipSelect_npc_lady_jaina_proudmoore(Player* pPlayer, Creature* pCreature
 
 enum
 {
-    SAY_MOR_CHALLENGE               = -1000499,
-    SAY_MOR_SCARED                  = -1000500,
+    SAY_MOR_CHALLENGE        = -1000499,
+    SAY_MOR_SCARED           = -1000500,
 
-    QUEST_CHALLENGE_MOROKK          = 1173,
+    QUEST_CHALLENGE_MOROKK   = 1173,
 
-    FACTION_MOR_HOSTILE             = 168,
-    FACTION_MOR_RUNNING             = 35
+    FACTION_MOR_HOSTILE      = 168,
+    FACTION_MOR_RUNNING      = 35
 };
 
 struct MANGOS_DLL_DECL npc_morokkAI : public npc_escortAI
@@ -178,7 +177,7 @@ bool QuestAccept_npc_morokk(Player* pPlayer, Creature* pCreature, const Quest* p
     if (pQuest->GetQuestId() == QUEST_CHALLENGE_MOROKK)
     {
         if (npc_morokkAI* pEscortAI = dynamic_cast<npc_morokkAI*>(pCreature->AI()))
-            pEscortAI->Start(true, true, pPlayer->GetGUID(), pQuest);
+            pEscortAI->Start(true, pPlayer->GetGUID(), pQuest);
 
         return true;
     }
@@ -224,43 +223,43 @@ bool GossipSelect_npc_nat_pagle(Player* pPlayer, Creature* pCreature, uint32 uiS
 
 enum
 {
-    SAY_OGR_START                       = -1000452,
-    SAY_OGR_SPOT                        = -1000453,
-    SAY_OGR_RET_WHAT                    = -1000454,
-    SAY_OGR_RET_SWEAR                   = -1000455,
-    SAY_OGR_REPLY_RET                   = -1000456,
-    SAY_OGR_RET_TAKEN                   = -1000457,
-    SAY_OGR_TELL_FIRE                   = -1000458,
-    SAY_OGR_RET_NOCLOSER                = -1000459,
-    SAY_OGR_RET_NOFIRE                  = -1000460,
-    SAY_OGR_RET_HEAR                    = -1000461,
-    SAY_OGR_CAL_FOUND                   = -1000462,
-    SAY_OGR_CAL_MERCY                   = -1000463,
-    SAY_OGR_HALL_GLAD                   = -1000464,
-    EMOTE_OGR_RET_ARROW                 = -1000465,
-    SAY_OGR_RET_ARROW                   = -1000466,
-    SAY_OGR_CAL_CLEANUP                 = -1000467,
-    SAY_OGR_NODIE                       = -1000468,
-    SAY_OGR_SURVIVE                     = -1000469,
-    SAY_OGR_RET_LUCKY                   = -1000470,
-    SAY_OGR_THANKS                      = -1000471,
+    SAY_OGR_START              = -1000452,
+    SAY_OGR_SPOT               = -1000453,
+    SAY_OGR_RET_WHAT           = -1000454,
+    SAY_OGR_RET_SWEAR          = -1000455,
+    SAY_OGR_REPLY_RET          = -1000456,
+    SAY_OGR_RET_TAKEN          = -1000457,
+    SAY_OGR_TELL_FIRE          = -1000458,
+    SAY_OGR_RET_NOCLOSER       = -1000459,
+    SAY_OGR_RET_NOFIRE         = -1000460,
+    SAY_OGR_RET_HEAR           = -1000461,
+    SAY_OGR_CAL_FOUND          = -1000462,
+    SAY_OGR_CAL_MERCY          = -1000463,
+    SAY_OGR_HALL_GLAD          = -1000464,
+    EMOTE_OGR_RET_ARROW        = -1000465,
+    SAY_OGR_RET_ARROW          = -1000466,
+    SAY_OGR_CAL_CLEANUP        = -1000467,
+    SAY_OGR_NODIE              = -1000468,
+    SAY_OGR_SURVIVE            = -1000469,
+    SAY_OGR_RET_LUCKY          = -1000470,
+    SAY_OGR_THANKS             = -1000471,
 
-    QUEST_QUESTIONING                   = 1273,
+    QUEST_QUESTIONING          = 1273,
 
-    FACTION_GENERIC_FRIENDLY            = 35,
-    FACTION_THER_HOSTILE                = 151,
+    FACTION_GENERIC_FRIENDLY   = 35,
+    FACTION_THER_HOSTILE       = 151,
 
-    NPC_REETHE                          = 4980,
-    NPC_CALDWELL                        = 5046,
-    NPC_HALLAN                          = 5045,
-    NPC_SKIRMISHER                      = 5044,
+    NPC_REETHE                 = 4980,
+    NPC_CALDWELL               = 5046,
+    NPC_HALLAN                 = 5045,
+    NPC_SKIRMISHER             = 5044,
 
-    SPELL_FAKE_SHOT                     = 7105,
+    SPELL_FAKE_SHOT            = 7105,
 
-    PHASE_INTRO                         = 0,
-    PHASE_GUESTS                        = 1,
-    PHASE_FIGHT                         = 2,
-    PHASE_COMPLETE                      = 3
+    PHASE_INTRO                = 0,
+    PHASE_GUESTS               = 1,
+    PHASE_FIGHT                = 2,
+    PHASE_COMPLETE             = 3
 };
 
 static float m_afSpawn[] = {-3383.501953f, -3203.383301f, 36.149f};
@@ -508,7 +507,7 @@ bool QuestAccept_npc_ogron(Player* pPlayer, Creature* pCreature, const Quest* pQ
     {
         if (npc_ogronAI* pEscortAI = dynamic_cast<npc_ogronAI*>(pCreature->AI()))
         {
-            pEscortAI->Start(false, false, pPlayer->GetGUID(), pQuest, true);
+            pEscortAI->Start(false, pPlayer->GetGUID(), pQuest, true);
             pCreature->setFaction(FACTION_ESCORT_N_FRIEND_PASSIVE);
             DoScriptText(SAY_OGR_START, pCreature, pPlayer);
         }
@@ -528,21 +527,21 @@ CreatureAI* GetAI_npc_ogron(Creature* pCreature)
 
 enum
 {
-    SAY_PROGRESS_1_TER          = -1000411,
-    SAY_PROGRESS_2_HEN          = -1000412,
-    SAY_PROGRESS_3_TER          = -1000413,
-    SAY_PROGRESS_4_TER          = -1000414,
-    EMOTE_SURRENDER             = -1000415,
+    SAY_PROGRESS_1_TER         = -1000411,
+    SAY_PROGRESS_2_HEN         = -1000412,
+    SAY_PROGRESS_3_TER         = -1000413,
+    SAY_PROGRESS_4_TER         = -1000414,
+    EMOTE_SURRENDER            = -1000415,
 
-    QUEST_MISSING_DIPLO_PT16    = 1324,
-    FACTION_HOSTILE             = 168,                      //guessed, may be different
+    QUEST_MISSING_DIPLO_PT16   = 1324,
+    FACTION_HOSTILE            = 168, // guessed, may be different
 
-    NPC_SENTRY                  = 5184,                     //helps hendel
-    NPC_JAINA                   = 4968,                     //appears once hendel gives up
-    NPC_TERVOSH                 = 4967
+    NPC_SENTRY                 = 5184, // helps hendel
+    NPC_JAINA                  = 4968, // appears once hendel gives up
+    NPC_TERVOSH                = 4967
 };
 
-//TODO: develop this further, end event not created
+// TODO: develop this further, end event not created
 struct MANGOS_DLL_DECL npc_private_hendelAI : public ScriptedAI
 {
     npc_private_hendelAI(Creature* pCreature) : ScriptedAI(pCreature) { Reset(); }
@@ -592,41 +591,6 @@ CreatureAI* GetAI_npc_private_hendel(Creature* pCreature)
     return new npc_private_hendelAI(pCreature);
 }
 
-/*######
-## npc_cassa_crimsonwing
-######*/
-
-enum
-{
-    QUEST_SURVEY_ALCAZ          = 11142,
-    SPELL_ALCAZ_SURVEY          = 42295
-};
-
-#define GOSSIP_RIDE             "<Ride the gryphons to Survey Alcaz Island>"
-
-bool GossipHello_npc_cassa_crimsonwing(Player* pPlayer, Creature* pCreature)
-{
-    if (pPlayer->GetQuestStatus(QUEST_SURVEY_ALCAZ) == QUEST_STATUS_INCOMPLETE)
-        pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, GOSSIP_RIDE, GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF+1);
-
-    pPlayer->SEND_GOSSIP_MENU(pPlayer->GetGossipTextId(pCreature), pCreature->GetGUID());
-    return true;
-}
-
-bool GossipSelect_npc_cassa_crimsonwing(Player* pPlayer, Creature* pCreature, uint32 uiSender, uint32 uiAction)
-{
-    if (uiAction == GOSSIP_ACTION_INFO_DEF+1)
-    {
-        pPlayer->CLOSE_GOSSIP_MENU();
-        pPlayer->CastSpell(pPlayer, SPELL_ALCAZ_SURVEY, false);
-    }
-    return true;
-}
-
-/*######
-##
-######*/
-
 void AddSC_dustwallow_marsh()
 {
     Script* pNewScript;
@@ -659,11 +623,5 @@ void AddSC_dustwallow_marsh()
     pNewScript->Name = "npc_private_hendel";
     pNewScript->GetAI = &GetAI_npc_private_hendel;
     pNewScript->pQuestAcceptNPC = &QuestAccept_npc_private_hendel;
-    pNewScript->RegisterSelf();
-
-    pNewScript = new Script;
-    pNewScript->Name = "npc_cassa_crimsonwing";
-    pNewScript->pGossipHello = &GossipHello_npc_cassa_crimsonwing;
-    pNewScript->pGossipSelect = &GossipSelect_npc_cassa_crimsonwing;
     pNewScript->RegisterSelf();
 }
