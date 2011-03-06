@@ -372,9 +372,6 @@
     <ClCompile Include="..\scripts\eastern_kingdoms\scarlet_monastery\boss_bloodmage_thalnos.cpp">
       <Filter>scripts\eastern_kingdoms\scarlet_monastery</Filter>
     </ClCompile>
-    <ClCompile Include="..\scripts\eastern_kingdoms\scarlet_monastery\boss_headless_horseman.cpp">
-      <Filter>scripts\eastern_kingdoms\scarlet_monastery</Filter>
-    </ClCompile>
     <ClCompile Include="..\scripts\eastern_kingdoms\scarlet_monastery\boss_herod.cpp">
       <Filter>scripts\eastern_kingdoms\scarlet_monastery</Filter>
     </ClCompile>
@@ -399,31 +396,10 @@
     <ClCompile Include="..\scripts\eastern_kingdoms\scholomance\boss_death_knight_darkreaver.cpp">
       <Filter>scripts\eastern_kingdoms\scholomance</Filter>
     </ClCompile>
-    <ClCompile Include="..\scripts\eastern_kingdoms\scholomance\boss_doctor_theolen_krastinov.cpp">
-      <Filter>scripts\eastern_kingdoms\scholomance</Filter>
-    </ClCompile>
-    <ClCompile Include="..\scripts\eastern_kingdoms\scholomance\boss_illucia_barov.cpp">
-      <Filter>scripts\eastern_kingdoms\scholomance</Filter>
-    </ClCompile>
-    <ClCompile Include="..\scripts\eastern_kingdoms\scholomance\boss_instructor_malicia.cpp">
-      <Filter>scripts\eastern_kingdoms\scholomance</Filter>
-    </ClCompile>
     <ClCompile Include="..\scripts\eastern_kingdoms\scholomance\boss_jandice_barov.cpp">
       <Filter>scripts\eastern_kingdoms\scholomance</Filter>
     </ClCompile>
     <ClCompile Include="..\scripts\eastern_kingdoms\scholomance\boss_kormok.cpp">
-      <Filter>scripts\eastern_kingdoms\scholomance</Filter>
-    </ClCompile>
-    <ClCompile Include="..\scripts\eastern_kingdoms\scholomance\boss_lord_alexei_barov.cpp">
-      <Filter>scripts\eastern_kingdoms\scholomance</Filter>
-    </ClCompile>
-    <ClCompile Include="..\scripts\eastern_kingdoms\scholomance\boss_lorekeeper_polkelt.cpp">
-      <Filter>scripts\eastern_kingdoms\scholomance</Filter>
-    </ClCompile>
-    <ClCompile Include="..\scripts\eastern_kingdoms\scholomance\boss_ras_frostwhisper.cpp">
-      <Filter>scripts\eastern_kingdoms\scholomance</Filter>
-    </ClCompile>
-    <ClCompile Include="..\scripts\eastern_kingdoms\scholomance\boss_the_ravenian.cpp">
       <Filter>scripts\eastern_kingdoms\scholomance</Filter>
     </ClCompile>
     <ClCompile Include="..\scripts\eastern_kingdoms\scholomance\boss_vectus.cpp">
@@ -483,10 +459,16 @@
     <ClCompile Include="..\scripts\eastern_kingdoms\sunken_temple\sunken_temple.cpp">
       <Filter>scripts\eastern_kingdoms\sunken_temple</Filter>
     </ClCompile>
+    <ClCompile Include="..\scripts\eastern_kingdoms\uldaman\boss_archaedas.cpp">
+      <Filter>scripts\eastern_kingdoms\uldaman</Filter>
+    </ClCompile>
     <ClCompile Include="..\scripts\eastern_kingdoms\uldaman\boss_ironaya.cpp">
       <Filter>scripts\eastern_kingdoms\uldaman</Filter>
     </ClCompile>
     <ClCompile Include="..\scripts\eastern_kingdoms\uldaman\uldaman.cpp">
+      <Filter>scripts\eastern_kingdoms\uldaman</Filter>
+    </ClCompile>
+    <ClCompile Include="..\scripts\eastern_kingdoms\uldaman\instance_uldaman.cpp">
       <Filter>scripts\eastern_kingdoms\uldaman</Filter>
     </ClCompile>
     <ClCompile Include="..\scripts\eastern_kingdoms\zulgurub\boss_arlokk.cpp">
@@ -606,6 +588,12 @@
     <ClCompile Include="..\scripts\kalimdor\blackfathom_deeps\instance_blackfathom_deeps.cpp">
       <Filter>scripts\kalimdor\blackfathom_deeps</Filter>
     </ClCompile>
+    <ClCompile Include="..\scripts\kalimdor\dire_maul\dire_maul.cpp">
+      <Filter>scripts\kalimdor\dire_maul</Filter>
+    </ClCompile>
+    <ClCompile Include="..\scripts\kalimdor\dire_maul\instance_dire_maul.cpp">
+      <Filter>scripts\kalimdor\dire_maul</Filter>
+    </ClCompile>
     <ClCompile Include="..\scripts\kalimdor\maraudon\boss_celebras_the_cursed.cpp">
       <Filter>scripts\kalimdor\maraudon</Filter>
     </ClCompile>
@@ -686,6 +674,9 @@
     </ClCompile>
     <ClCompile Include="..\scripts\kalimdor\temple_of_ahnqiraj\mob_anubisath_sentinel.cpp">
       <Filter>scripts\kalimdor\temple_of_ahnqiraj</Filter>
+    </ClCompile>
+    <ClCompile Include="..\scripts\kalimdor\wailing_caverns\wailing_caverns.cpp">
+      <Filter>scripts\kalimdor\wailing_caverns</Filter>
     </ClCompile>
     <ClCompile Include="..\scripts\kalimdor\wailing_caverns\instance_wailing_caverns.cpp">
       <Filter>scripts\kalimdor\wailing_caverns</Filter>
@@ -860,11 +851,17 @@
     <ClInclude Include="..\scripts\eastern_kingdoms\sunken_temple\sunken_temple.h">
       <Filter>scripts\eastern_kingdoms\sunken_temple</Filter>
     </ClInclude>
+    <ClInclude Include="..\scripts\eastern_kingdoms\uldaman\uldaman.h">
+      <Filter>scripts\eastern_kingdoms\uldaman</Filter>
+    </ClInclude>
     <ClInclude Include="..\scripts\eastern_kingdoms\zulgurub\zulgurub.h">
       <Filter>scripts\eastern_kingdoms\zulgurub</Filter>
     </ClInclude>
     <ClInclude Include="..\scripts\kalimdor\blackfathom_deeps\blackfathom_deeps.h">
       <Filter>scripts\kalimdor\blackfathom_deeps</Filter>
+    </ClInclude>
+    <ClInclude Include="..\scripts\kalimdor\dire_maul\dire_maul.h">
+      <Filter>scripts\kalimdor\dire_maul</Filter>
     </ClInclude>
     <ClInclude Include="..\scripts\kalimdor\razorfen_kraul\razorfen_kraul.h">
       <Filter>scripts\kalimdor\razorfen_kraul</Filter>

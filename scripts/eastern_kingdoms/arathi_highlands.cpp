@@ -104,7 +104,7 @@ bool QuestAccept_npc_professor_phizzlethorpe(Player* pPlayer, Creature* pCreatur
         DoScriptText(SAY_PROGRESS_1, pCreature, pPlayer);
 
         if (npc_professor_phizzlethorpeAI* pEscortAI = dynamic_cast<npc_professor_phizzlethorpeAI*>(pCreature->AI()))
-            pEscortAI->Start(false, false, pPlayer->GetGUID(), pQuest, true);
+            pEscortAI->Start(false, pPlayer->GetGUID(), pQuest, true);
     }
     return true;
 }
@@ -116,11 +116,11 @@ CreatureAI* GetAI_npc_professor_phizzlethorpe(Creature* pCreature)
 
 void AddSC_arathi_highlands()
 {
-    Script * newscript;
+    Script* pNewScript;
 
-    newscript = new Script;
-    newscript->Name = "npc_professor_phizzlethorpe";
-    newscript->GetAI = &GetAI_npc_professor_phizzlethorpe;
-    newscript->pQuestAcceptNPC = &QuestAccept_npc_professor_phizzlethorpe;
-    newscript->RegisterSelf();
+    pNewScript = new Script;
+    pNewScript->Name = "npc_professor_phizzlethorpe";
+    pNewScript->GetAI = &GetAI_npc_professor_phizzlethorpe;
+    pNewScript->pQuestAcceptNPC = &QuestAccept_npc_professor_phizzlethorpe;
+    pNewScript->RegisterSelf();
 }

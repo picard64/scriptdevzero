@@ -638,25 +638,27 @@ INSERT INTO script_texts (entry,content_default,sound,type,language,emote,commen
 (-1036001,'We\'re under attack! A vast, ye swabs! Repel the invaders!',5777,1,7,0,'smite INST_SAY_ALARM2');
 
 -- -1 043 000 WAILING CAVERNS
-DELETE FROM script_texts WHERE entry BETWEEN -1614999 AND -1614982;
-INSERT INTO script_texts (`entry`,`content_default`,`type`,`comment`) VALUES
-(-1614999, 'At last! Naralex can be awakened! Come aid me, brave adventurers!',1,'Disciple of Naralex - after choosing gossip'),
-(-1614998, 'I must take the necessary preparations before the awakening ritual can begin. You must protect me!',0,'Disciple of Naralex - begining'),
-(-1614997, 'This caverns were once a temple of promise for regrowth in the Barrens. Now, they are the halls of nightmares.',0,'Disciple of Naralex - after moving from 1 pnt'),
-(-1614996, 'Come. We must continue. There is much to be done before we can pull Naralex from his nightmare.',0,'Disciple of Naralex - first mobs slain'),
-(-1614995, 'Within this circle of fire I must cast the spell to banish the spirits of slain Fanglords.',0,'Disciple of Naralex - circle of fire encounter begining'),
-(-1614994, 'The caverns have been purified. To Naralex\'s chamber we go!',0,'Disciple of Naralex - after circle of fire encounter'),
-(-1614993, 'Beyond this corridor, Naralex lies in fitful sleep. Let us go awaken him before it is too late.',0,'Disciple of Naralex - before turning to naralex chamber'),
-(-1614992, 'Protect me brave souls as I delve into the Emerald Dream to rescue Naralex and put an end to this corruption!',0,'Disciple of Naralex - ritual of awakening begining'),
-(-1614991, '$s begins to perform the awakening ritual on Naralex.',0,'Disciple of Naralex - Disciple emote'),
-(-1614990, '$s tosses fitfully in troubled sleep.',0,'Naralex -  Naralex emote1'),
-(-1614989, 'Attacked! Help get this $N off of me!',0,'Disciple of Naralex -  attacked'),
-(-1614987, '$s writhes in agony. The Disciple seems to be breaking through.',0,'Naralex -  emote2'),
-(-1614986, 'The Mutanous the Devourer is a minin from Naralex\'s nightmare no doubt!',0,'Disciple of Naralex -  after Mutaous spawn'),
-(-1614985, 'I AM AWAKE! A LAST!',1,'Naralex -  awakening after killing Mutanous'),
-(-1614984, 'At last! Naralex awakes from the nightmare.',0,'Disciple of Naralex -  after N. awakening'),
-(-1614983, 'Ah, to be pulled from the dreaded nightmare! I thank you, my loyal Disciple, along with your brave companions.',0,'Disciple of Naralex -  after N. awakening1'),
-(-1614982, 'We must go and gather with the other Disciplies. There is much work to be done before I can make another attempt to restore the Barrens. Farewell, brave souls!',0,'Disciple of Naralex -  after N. awakening2');
+INSERT INTO script_texts (entry,content_default,sound,type,language,emote,comment) VALUES
+(-1043000,'At last! Naralex can be awakened! Come aid me, brave adventurers!',0,6,0,0,'Disciple of Naralex - SAY_INTRO'),
+(-1043001,'I must make the nescessary preparations before the awakening ritual can begin. You must protect me!',0,0,0,0,'SAY_PREPARE'),
+(-1043002,'These caverns were once a temple of promise for regrowth in the Barrens. Now, they are the halls of nightmares.',0,0,0,0,'Disciple of Naralex - SAY_FIRST_CORNER'),
+(-1043003,'Come. We must continue. There is much to be done before we can pull Naralex from his nightmare.',0,0,0,0,'Disciple of Naralex - SAY_CONTINUE'),
+(-1043004,'Within this circle of fire I must cast the spell to banish the spirits of the slain Fanglords.',0,0,0,0,'Disciple of Naralex - SAY_CIRCLE_BANISH'),
+(-1043005,'The caverns have been purified. To Naralex''s chamber we go!',0,0,0,0,'Disciple of Naralex - SAY_PURIFIED'),
+(-1043006,'Beyond this corridor, Naralex lies in fitful sleep. Let us go awaken him before it is too late.',0,0,0,0,'Disciple of Naralex - SAY_NARALEX_CHAMBER'),
+(-1043007,'Protect me brave souls as I delve into the Emerald Dream to rescue Naralex and put an end to this corruption!',0,1,0,0,'Disciple of Naralex - SAY_BEGIN_RITUAL'),
+(-1043008,'%s begins to perform the awakening ritual on Naralex.',0,2,0,0,'Disciple of Naralex - EMOTE_RITUAL_BEGIN'),
+(-1043009,'%s tosses fitfully in troubled sleep.',0,2,0,0,'Naralex - EMOTE_NARALEX_AWAKE'),
+(-1043010,'%s writhes in agony. The Disciple seems to be breaking through.',0,2,0,0,'Naralex - EMOTE_BREAK_THROUGH'),
+(-1043011,'%s dreams up a horrendous vision. Something stirs beneath the murky waters.',0,2,0,0,'Naralex - EMOTE_VISION'),
+(-1043012,'This $N is a minion from Naralex\'s nightmare no doubt!.',0,0,0,0,'Disciple of Naralex - SAY_MUTANUS'),
+(-1043013,'I AM AWAKE, AT LAST!',5789,1,0,0,'Naralex - SAY_NARALEX_AWAKE'),
+(-1043014,'At last! Naralex awakes from the nightmare.',0,0,0,0,'Disciple of Naralex - SAY_AWAKE'),
+(-1043015,'Ah, to be pulled from the dreaded nightmare! I thank you, my loyal Disciple, along with your brave companions.',0,0,0,0,'Naralex - SAY_NARALEX_THANKYOU'),
+(-1043016,'We must go and gather with the other Disciplies. There is much work to be done before I can make another attempt to restore the Barrens. Farewell, brave souls!',0,0,0,0,'Naralex - SAY_FAREWELL'),
+(-1043017,'Attacked! Help get this $N off of me!',0,0,0,0,'Disciple of Naralex - SAY_AGGRO_1'),
+(-1043018,'Help!',0,0,0,0,'Disciple of Naralex - SAY_AGGRO_2'),
+(-1043019,'Deal with this $N! I need to prepare to awake Naralex!',0,0,0,0,'Disciple of Naralex - SAY_AGGRO_3');
 
 -- -1 047 000 RAZORFEN KRAUL
 
@@ -664,7 +666,11 @@ INSERT INTO script_texts (`entry`,`content_default`,`type`,`comment`) VALUES
 
 -- -1 070 000 ULDAMAN
 INSERT INTO script_texts (entry,content_default,sound,type,language,emote,comment) VALUES
-(-1070000,'None may steal the secrets of the makers!',5851,1,0,0,'ironaya SAY_AGGRO');
+(-1070000,'REUSE ME',0,0,0,0,'REUSE ME'),
+(-1070001,'Who dares awaken Archaedas? Who dares the wrath of the makers!',5855,1,0,0,'archaedas SAY_AGGRO'),
+(-1070002,'Awake ye servants, defend the discs!',5856,1,0,0,'archaedas SAY_AWAKE_GUARDIANS'),
+(-1070003,'To my side, brothers. For the makers!',5857,1,0,0,'archaedas SAY_AWAKE_WARDERS'),
+(-1070004,'Reckless mortal.',5858,1,0,0,'archaedas SAY_UNIT_SLAIN');
 
 -- -1 090 000 GNOMEREGAN
 INSERT INTO script_texts (entry,content_default,sound,type,language,emote,comment) VALUES
@@ -724,7 +730,7 @@ INSERT INTO script_texts (entry,content_default,sound,type,language,emote,commen
 (-1189001,'Blades of Light!',5832,1,0,0,'herod SAY_WHIRLWIND'),
 (-1189002,'Light, give me strength!',5833,1,0,0,'herod SAY_ENRAGE'),
 (-1189003,'Hah, is that all?',5831,1,0,0,'herod SAY_KILL'),
-(-1189004,'%s becomes enraged!',0,2,0,0,'herod EMOTE_ENRAGE'),
+(-1189004,'REUSE_ME',0,0,0,0,'REUSE_ME'),
 
 (-1189005,'Infidels! They must be purified!',5835,1,0,0,'mograine SAY_MO_AGGRO'),
 (-1189006,'Unworthy!',5836,1,0,0,'mograine SAY_MO_KILL'),
@@ -747,7 +753,9 @@ INSERT INTO script_texts (entry,content_default,sound,type,language,emote,commen
 (-1189019,'You will not defile these mysteries!',5842,1,0,0,'doan SAY_AGGRO'),
 (-1189020,'Burn in righteous fire!',5843,1,0,0,'doan SAY_SPECIALAE'),
 
-(-1189021,'Release the hounds!',5841,1,0,0,'loksey SAY_AGGRO');
+(-1189021,'Release the hounds!',5841,1,0,0,'loksey SAY_AGGRO'),
+
+(-1189022,'The master has fallen! Avenge him my brethren!',5834,1,0,0,'trainee SAY_TRAINEE_SPAWN');
 
 -- -1 209 000 ZUL'FARRAK
 
@@ -765,7 +773,39 @@ INSERT INTO script_texts (entry,content_default,sound,type,language,emote,commen
 (-1230006,'Unleash the fury and let it be done!',0,1,0,0,'grimstone SAY_OPEN_EAST_GATE'),
 (-1230007,'But your real punishment lies ahead.',0,1,0,0,'grimstone SAY_SUMMON_BOSS_1'),
 (-1230008,'Haha! I bet you thought you were done!',0,1,0,0,'grimstone SAY_SUMMON_BOSS_2'),
-(-1230009,'Good Riddance!',0,1,0,0,'grimstone SAY_OPEN_NORTH_GATE');
+(-1230009,'Good Riddance!',0,1,0,0,'grimstone SAY_OPEN_NORTH_GATE'),
+
+(-1230010,'Thank you, $N! I\'m free!!!',0,0,0,0,'dughal SAY_FREE'),
+(-1230011,'You locked up the wrong Marshal. Prepare to be destroyed!',0,0,0,0,'windsor SAY_AGGRO_1'),
+(-1230012,'I bet you\'re sorry now, aren\'t you !?!!',0,0,0,0,'windsor SAY_AGGRO_2'),
+(-1230013,'You better hold me back $N or they are going to feel some prison house beatings.',0,0,0,0,'windsor SAY_AGGRO_3'),
+(-1230014,'Let\'s get a move on. My gear should be in the storage area up this way...',0,0,0,0,'windsor SAY_1'),
+(-1230015,'Check that cell, $N. If someone is alive in there, we need to get them out.',0,0,0,0,'windsor SAY_4_1'),
+(-1230016,'Get him out of there!',0,0,0,0,'windsor SAY_4_2'),
+(-1230017,'Good work! We\'re almost there, $N. This way.',0,0,0,0,'windsor SAY_4_3'),
+(-1230018,'This is it, $N. My stuff should be in that room. Cover me, I\'m going in!',0,0,0,0,'windsor SAY_6'),
+(-1230019,'Ah, there it is!',0,0,0,0,'windsor SAY_9'),
+(-1230020,'Can you feel the power, $N??? It\'s time to ROCK!',0,0,0,0,'reginald_windsor SAY_0_1'),
+(-1230021,'Now we just have to free Tobias and we can get out of here. This way!',0,0,0,0,'reginald_windsor SAY_0_2'),
+(-1230022,'Open it.',0,0,0,0,'reginald_windsor SAY_5_1'),
+(-1230023,'I never did like those two. Let\'s get moving.',0,0,0,0,'reginald_windsor SAY_5_2'),
+(-1230024,'Open it and be careful this time!',0,0,0,0,'reginald_windsor SAY_7_1'),
+(-1230025,'That intolerant dirtbag finally got what was coming to him. Good riddance!',0,0,0,0,'reginald_windsor SAY_7_2'),
+(-1230026,'Alright, let\'s go.',0,0,0,0,'reginald_windsor SAY_7_3'),
+(-1230027,'Open it. We need to hurry up. I can smell those Dark Irons coming a mile away and I can tell you one thing, they\'re COMING!',0,0,0,0,'reginald_windsor SAY_13_1'),
+(-1230028,'Administering fists of fury on Crest Killer!',0,0,0,0,'reginald_windsor SAY_13_2'),
+(-1230029,'He has to be in the last cell. Unless... they killed him.',0,0,0,0,'reginald_windsor SAY_13_3'),
+(-1230030,'Get him out of there!',0,0,0,0,'reginald_windsor SAY_14_1'),
+(-1230031,'Excellent work, $N. Let\'s find the exit. I think I know the way. Follow me!',0,0,0,0,'reginald_windsor SAY_14_2'),
+(-1230032,'We made it!',0,0,0,0,'reginald_windsor SAY_20_1'),
+(-1230033,'Meet me at Maxwell\'s encampment. We\'ll go over the next stages of the plan there and figure out a way to decode my tablets without the decryption ring.',0,0,0,0,'reginald_windsor SAY_20_2'),
+(-1230034,'Thank you! I will run for safety immediately!',0,0,0,0,'tobias SAY_FREE_1'),
+(-1230035,'Perhaps Ograbisi will use your head as a tiny little hat when I\'m through with you.',0,0,0,0,'shill_dinger SAY'),
+(-1230036,'Where I come from, you get shanked for opening another inmate\'s cell door!',0,0,0,0,'crest_killer SAY'),
+(-1230037,'Administering fists of fury on Shill Dinger!',0,0,0,0,'reginald_windsor SAY_7_4'),
+(-1230038,'Ograbisi needs new hat.',0,0,0,0,'ograbisi SAY'),
+(-1230039,'Finally!! I can leave this dump.',0,0,0,0,'tobias SAY_FREE_2'),
+(-1230040,'This is gonna leave a mark!',0,0,0,0,'reginald_windsor SAY_5_3');
 
 -- -1 249 000 ONYXIA'S LAIR
 INSERT INTO script_texts (entry,content_default,sound,type,language,emote,comment) VALUES
@@ -777,6 +817,8 @@ INSERT INTO script_texts (entry,content_default,sound,type,language,emote,commen
 
 
 -- -1 289 000 SCHOLOMANCE
+INSERT INTO script_texts (entry,content_default,sound,type,language,emote,comment) VALUES
+(-1289000,'School is in session!',0,1,0,0,'gandling SAY_GANDLING_SPAWN');
 
 -- -1 309 000 ZUL'GURUB
 INSERT INTO script_texts (entry,content_default,sound,type,language,emote,comment) VALUES
@@ -819,7 +861,12 @@ INSERT INTO script_texts (entry,content_default,sound,type,language,emote,commen
 (-1329000,'Thanks to Egan',0,0,0,0,'freed_soul SAY_ZAPPED0'),
 (-1329001,'Rivendare must die',0,0,0,0,'freed_soul SAY_ZAPPED1'),
 (-1329002,'Who you gonna call?',0,0,0,0,'freed_soul SAY_ZAPPED2'),
-(-1329003,'Don\'t cross those beams!',0,0,0,0,'freed_soul SAY_ZAPPED3');
+(-1329003,'Don\'t cross those beams!',0,0,0,0,'freed_soul SAY_ZAPPED3'),
+
+(-1329004,'An Ash\'ari Crystal has fallen! Stay true to the Lich King, my brethren, and attempt to resummon it.',0,6,0,0,'thuzadin acolyte SAY_ANNOUNCE_ZIGGURAT_1'),
+(-1329005,'One of the Ash\'ari Crystals has been destroyed! Slay the intruders!',0,6,0,0,'thuzadin acolyte SAY_ANNOUNCE_ZIGGURAT_2'),
+(-1329006,'An Ash\'ari Crystal has been toppled! Restore the ziggurat before the Necropolis is vulnerable!',0,6,0,0,'thuzadin acolyte SAY_ANNOUNCE_ZIGGURAT_3'),
+(-1329007,'The Ash\'ari Crystals have been destroyed! The Slaughterhouse is vulnerable!',0,6,0,0,'baron rivendare SAY_ANNOUNCE_RIVENDARE');
 
 -- -1 349 000 MARAUDON
 
@@ -832,10 +879,10 @@ INSERT INTO script_texts (entry,content_default,sound,type,language,emote,commen
 (-1409002,'%s refuses to die while its master is in trouble.',0,2,0,0,'core rager EMOTE_LOWHP'),
 
 (-1409003,'Reckless mortals, none may challenge the sons of the living flame!',8035,1,0,0,'majordomo SAY_AGGRO'),
-(-1409004,'The runes of warding have been destroyed! Hunt down the infedels my bretheren.',8039,1,0,0,'majordomo SAY_SPAWN'),
+(-1409004,'The runes of warding have been destroyed! Hunt down the infedels my bretheren.',8039,6,0,0,'majordomo SAY_SPAWN'),
 (-1409005,'Ashes to Ashes!',8037,1,0,0,'majordomo SAY_SLAY'),
 (-1409006,'Burn mortals! Burn for this transgression!',8036,1,0,0,'majordomo SAY_SPECIAL'),
-(-1409007,'Impossible! Stay your attack mortals! I submitt! I submitt! Brashly you have come to rest the secrets of the living flame. You will soon regret the recklessness of your quest. I go now to summon the lord whos house this is. Should you seek an audiance with him your paltry lives will surly be forfit. Nevertheless seek out his lair if you dare!',8038,1,0,0,'majordomo SAY_DEFEAT'),
+(-1409007,'Impossible! Stay your attack mortals! I submitt! I submitt!',8038,1,0,0,'majordomo SAY_DEFEAT_1'),
 
 (-1409008,'Behold Ragnaros, the Firelord! He who was ancient when this world was young! Bow before him, mortals! Bow before your ending!',8040,1,0,0,'ragnaros SAY_SUMMON_MAJ'),
 (-1409009,'TOO SOON! YOU HAVE AWAKENED ME TOO SOON, EXECUTUS! WHAT IS THE MEANING OF THIS INTRUSION?',8043,1,0,0,'ragnaros SAY_ARRIVAL1_RAG'),
@@ -848,7 +895,12 @@ INSERT INTO script_texts (entry,content_default,sound,type,language,emote,commen
 (-1409015,'BY FIRE BE PURGED!',8046,1,0,0,'ragnaros SAY_HAND'),
 (-1409016,'TASTE THE FLAMES OF SULFURON!',8047,1,0,0,'ragnaros SAY_WRATH'),
 (-1409017,'DIE INSECT!',8051,1,0,0,'ragnaros SAY_KILL'),
-(-1409018,'MY PATIENCE IS DWINDILING! COME NATS TO YOUR DEATH!',8048,1,0,0,'ragnaros SAY_MAGMABURST');
+(-1409018,'MY PATIENCE IS DWINDILING! COME NATS TO YOUR DEATH!',8048,1,0,0,'ragnaros SAY_MAGMABURST'),
+
+(-1409019,'You think you\'ve won already? Perhaps you\'ll need another lesson in pain!',0,1,0,0,'majordomo SAY_LAST_ADD'),
+(-1409020,'Brashly you have come to rest the secrets of the living flame. You will soon regret the recklessness of your quest.',0,1,0,0,'majordomo SAY_DEFEAT_2'),
+(-1409021,'I go now to summon the lord whos house this is. Should you seek an audiance with him your paltry lives will surly be forfit. Nevertheless seek out his lair if you dare!',0,1,0,0,'majordomo SAY_DEFEAT_3'),
+(-1409022,'My flame! Please don\'t take away my flame... ',8042,1,0,0,'ragnaros SAY_ARRIVAL4_MAJ');
 
 -- -1 429 000 DIRE MAUL
 
@@ -1122,10 +1174,30 @@ INSERT INTO script_texts (entry,content_default,sound,type,language,emote,commen
 
 TRUNCATE gossip_texts;
 
--- -1 090 000 GNOMEREGAN
+-- -3 090 000 GNOMEREGAN
 INSERT INTO gossip_texts (entry,content_default,comment) VALUES
 (-3090000,'I am ready to begin.','emi shortfuse GOSSIP_ITEM_START');
 
+-- -3 043 000 WAILING CAVERNS
+INSERT INTO gossip_texts (entry,content_default,comment) VALUES
+(-3043000,'Let the event begin!','Disciple of Naralex - GOSSIP_ITEM_BEGIN');
+
+-- -3 230 000 BLACKROCK DEPTHS
+INSERT INTO gossip_texts (entry,content_default,comment) VALUES
+(-3230000,'I need to know where the princess are, Kharan!','kharan GOSSIP_ITEM_1'),
+(-3230001,'All is not lost, Kharan!','kharan GOSSIP_ITEM_2'),
+(-3230002,'Gor\'shak is my friend, you can trust me.','kharan GOSSIP_ITEM_3'),
+(-3230003,'Not enough, you need to tell me more.','kharan GOSSIP_ITEM_4'),
+(-3230004,'So what happened?','kharan GOSSIP_ITEM_5'),
+(-3230005,'Continue...','kharan GOSSIP_ITEM_6'),
+(-3230006,'So you suspect that someone on the inside was involved? That they were tipped off?','kharan GOSSIP_ITEM_7'),
+(-3230007,'Continue with your story please.','kharan GOSSIP_ITEM_8'),
+(-3230008,'Indeed.','kharan GOSSIP_ITEM_9'),
+(-3230009,'The door is open, Kharan. You are a free man.','kharan GOSSIP_ITEM_9'),
+(-3230010,'Show me what I have access to, Lothos.','lokthos GOSSIP_ITEM_SHOW_ACCESS'),
+(-3230011,'Get Thorium Brotherhood Contract.','lokthos GOSSIP_ITEM_GET_CONTRACT'),
+(-3230012,'You\'re free, Dughal! Get out of here!','dughal GOSSIP_ITEM'),
+(-3230013,'Get out of here, Tobias, you\'re free!','tobias GOSSIP_ITEM');
 
 --
 -- Below just for beautiful view in table, run at own desire
@@ -1289,6 +1361,60 @@ INSERT INTO script_waypoint VALUES
 (2917, 40, 4658.669922, 611.092651, 8.891747, 0, ''),
 (2917, 41, 4671.924316, 599.752197, 16.01242, 5000, 'SAY_REM_REMEMBER'),
 (2917, 42, 4676.976074, 600.649780, 17.82566, 5000, 'EMOTE_REM_END');
+
+-- Quest: Rite of Vision (772)
+DELETE FROM script_waypoint WHERE entry=2983;
+INSERT INTO script_waypoint VALUES
+(2983,0,-2226.32,-408.095,-9.36235,0,''),
+(2983,1,-2203.04,-437.212,-5.72498,0,''),
+(2983,2,-2163.91,-457.851,-7.09049,0,''),
+(2983,3,-2123.87,-448.137,-9.29591,0,''),
+(2983,4,-2104.66,-427.166,-6.49513,0,''),
+(2983,5,-2101.48,-422.826,-5.3567,0,''),
+(2983,6,-2097.56,-417.083,-7.16716,0,''),
+(2983,7,-2084.87,-398.626,-9.88973,0,''),
+(2983,8,-2072.71,-382.324,-10.2488,0,''),
+(2983,9,-2054.05,-356.728,-6.22468,0,''),
+(2983,10,-2051.8,-353.645,-5.35791,0,''),
+(2983,11,-2049.08,-349.912,-6.15723,0,''),
+(2983,12,-2030.6,-310.724,-9.59302,0,''),
+(2983,13,-2002.15,-249.308,-10.8124,0,''),
+(2983,14,-1972.85,-195.811,-10.6316,0,''),
+(2983,15,-1940.93,-147.652,-11.7055,0,''),
+(2983,16,-1888.06,-81.943,-11.4404,0,''),
+(2983,17,-1837.05,-34.0109,-12.258,0,''),
+(2983,18,-1796.12,-14.6462,-10.3581,0,''),
+(2983,19,-1732.61,-4.27746,-10.0213,0,''),
+(2983,20,-1688.94,-0.829945,-11.7103,0,''),
+(2983,21,-1681.32,13.0313,-9.48056,0,''),
+(2983,22,-1677.04,36.8349,-7.10318,0,''),
+(2983,23,-1675.2,68.559,-8.95384,0,''),
+(2983,24,-1676.57,89.023,-9.65104,0,''),
+(2983,25,-1678.16,110.939,-10.1782,0,''),
+(2983,26,-1677.86,128.681,-5.73869,0,''),
+(2983,27,-1675.27,144.324,-3.47916,0,''),
+(2983,28,-1671.7,163.169,-1.23098,0,''),
+(2983,29,-1666.61,181.584,5.26145,0,''),
+(2983,30,-1661.51,196.154,8.95252,0,''),
+(2983,31,-1655.47,210.811,8.38727,0,''),
+(2983,32,-1647.07,226.947,5.27755,0,''),
+(2983,33,-1621.65,232.91,2.69579,0,''),
+(2983,34,-1600.23,237.641,2.98539,0,''),
+(2983,35,-1576.07,242.546,4.66541,0,''),
+(2983,36,-1554.57,248.494,6.60377,0,''),
+(2983,37,-1547.53,259.302,10.6741,0,''),
+(2983,38,-1541.7,269.847,16.4418,0,''),
+(2983,39,-1539.83,278.989,21.0597,0,''),
+(2983,40,-1540.16,290.219,27.8247,0,''),
+(2983,41,-1538.99,298.983,34.0032,0,''),
+(2983,42,-1540.38,307.337,41.3557,0,''),
+(2983,43,-1536.61,314.884,48.0179,0,''),
+(2983,44,-1532.42,323.277,55.6667,0,''),
+(2983,45,-1528.77,329.774,61.1525,0,''),
+(2983,46,-1525.65,333.18,63.2161,0,''),
+(2983,47,-1517.01,350.713,62.4286,0,''),
+(2983,48,-1511.39,362.537,62.4539,0,''),
+(2983,49,-1508.68,366.822,62.733,0,'despawn');
 
 -- Disciple of Naralex
 DELETE FROM script_waypoint WHERE entry = 3678;
@@ -2134,6 +2260,126 @@ INSERT INTO script_waypoint VALUES
 (7998, 17, -506.9069, -89.14736, -151.083,  23000, ''),
 (7998, 18, -512.7576, -101.9025, -153.198, 0, ''),
 (7998, 19, -519.9883, -124.8479, -156.128, 86400000, 'this npc should not reset on wp end');
+
+DELETE FROM script_waypoint WHERE entry=3678;
+INSERT INTO script_waypoint VALUES
+(3678, 0, -134.925, 125.468, -78.16, 0, ''),
+(3678, 1, -125.684, 132.937, -78.42, 0, ''),
+(3678, 2, -113.812, 139.295, -80.98, 0, ''),
+(3678, 3, -109.854, 157.538, -80.20, 0, ''),
+(3678, 4, -108.640, 175.207, -79.74, 0, ''),
+(3678, 5, -108.668, 195.457, -80.64, 0, ''),
+(3678, 6, -111.007, 219.007, -86.58, 0, ''),
+(3678, 7, -102.408, 232.821, -91.52, 0, 'first corner SAY_FIRST_CORNER'),
+(3678, 8, -92.434, 227.742, -90.75, 0, ''),
+(3678, 9, -82.456, 224.853, -93.57, 0, ''),
+(3678, 10, -67.789, 208.073, -93.34, 0, ''),
+(3678, 11, -43.343, 205.295, -96.37, 0, ''),
+(3678, 12, -34.676, 221.394, -95.82, 0, ''),
+(3678, 13, -32.582, 238.573, -93.51, 0, ''),
+(3678, 14, -42.149, 258.672, -92.88, 0, ''),
+(3678, 15, -55.257, 274.696, -92.83, 0, 'circle of flames SAY_CIRCLE_BANISH'),
+(3678, 16, -48.604, 287.584, -92.46, 0, ''),
+(3678, 17, -47.236, 296.093, -90.88, 0, ''),
+(3678, 18, -35.618, 309.067, -89.73, 0, ''),
+(3678, 19, -23.573, 311.376, -88.60, 0, ''),
+(3678, 20, -8.692, 302.389, -87.43, 0, ''),
+(3678, 21, -1.237, 293.268, -85.55, 0, ''),
+(3678, 22, 10.398, 279.294, -85.86, 0, ''),
+(3678, 23, 23.108, 264.693, -86.69, 0, ''),
+(3678, 24, 31.996, 251.436, -87.62, 0, ''),
+(3678, 25, 43.374, 233.073, -87.61, 0, ''),
+(3678, 26, 54.438, 212.048, -89.50, 3000, 'chamber entrance SAY_NARALEX_CHAMBER'),
+(3678, 27, 78.794, 208.895, -92.84, 0, ''),
+(3678, 28, 88.392, 225.231, -94.46, 0, ''),
+(3678, 29, 98.758, 233.938, -95.84, 0, ''),
+(3678, 30, 107.248, 233.054, -95.98, 0, ''),
+(3678, 31, 112.825, 233.907, -96.39, 0, ''),
+(3678, 32, 114.634, 236.969, -96.04, 1000, 'naralex SAY_BEGIN_RITUAL'),
+(3678, 33, 127.385, 252.279, -90.07, 0, ''),
+(3678, 34, 121.595, 264.488, -91.55, 0, ''),
+(3678, 35, 115.472, 264.253, -91.50, 0, ''),
+(3678, 36, 99.988, 252.790, -91.51, 0, ''),
+(3678, 37, 96.347, 245.038, -90.34, 0, ''),
+(3678, 38, 82.201, 216.273, -86.10, 0, ''),
+(3678, 39, 75.112, 206.494, -84.80, 0, ''),
+(3678, 40, 27.174, 201.064, -72.31, 0, ''),
+(3678, 41, -41.114, 204.149, -78.94, 0, '');
+
+DELETE FROM script_waypoint WHERE entry = 9022;
+INSERT INTO script_waypoint VALUES
+(9022, 0, 280.42, -82.86, -77.12, 0, ''),
+(9022, 1, 287.64, -87.01, -76.79, 0, ''),
+(9022, 2, 354.63, -64.95, -67.53, 0, '');
+
+DELETE FROM script_waypoint WHERE entry = 9023;
+INSERT INTO script_waypoint VALUES
+(9023, 0, 316.336, -225.528, -77.7258, 7000, ''),
+(9023, 1, 316.336, -225.528, -77.7258, 2000, ''),
+(9023, 2, 322.96, -207.13, -77.87, 0, ''),
+(9023, 3, 281.05, -172.16, -75.12, 0, ''),
+(9023, 4, 272.19, -139.14, -70.61, 0, ''),
+(9023, 5, 283.62, -116.09, -70.21, 0, ''),
+(9023, 6, 296.18, -94.30, -74.08, 0, ''),
+(9023, 7, 294.57, -93.11, -74.08, 0, ''),
+(9023, 8, 314.31, -74.31, -76.09, 0, ''),
+(9023, 9, 360.22, -62.93, -66.77, 0, ''),
+(9023, 10, 383.38, -69.40, -63.25, 0, ''),
+(9023, 11, 389.99, -67.86, -62.57, 0, ''),
+(9023, 12, 400.98, -72.01, -62.31, 0, ''),
+(9023, 13, 404.22, -62.30, -63.50, 2300, ''),
+(9023, 14, 404.22, -62.30, -63.50, 1500, ''),
+(9023, 15, 407.65, -51.86, -63.96, 0, ''),
+(9023, 16, 403.61, -51.71, -63.92, 1000, ''),
+(9023, 17, 403.61, -51.71, -63.92, 2000, ''),
+(9023, 18, 403.61, -51.71, -63.92, 1000, ''),
+(9023, 19, 403.61, -51.71, -63.92, 0, '');
+
+DELETE FROM script_waypoint WHERE entry = 9682;
+INSERT INTO script_waypoint VALUES
+(9682, 0, 403.61, -52.71, -63.92, 4000, ''),
+(9682, 1, 403.61, -52.71, -63.92, 4000, ''),
+(9682, 2, 406.33, -54.87, -63.95, 0, ''),
+(9682, 3, 403.86, -73.88, -62.02, 0, ''),
+(9682, 4, 557.03, -119.71, -61.83, 0, ''),
+(9682, 5, 573.40, -124.39, -65.07, 0, ''),
+(9682, 6, 593.91, -130.29, -69.25, 0, ''),
+(9682, 7, 593.21, -132.16, -69.25, 0, ''),
+(9682, 8, 593.21, -132.16, -69.25, 3000, ''),
+(9682, 9, 622.81, -135.55, -71.92, 0, ''),
+(9682, 10, 634.68, -151.29, -70.32, 0, ''),
+(9682, 11, 635.06, -153.25, -70.32, 0, ''),
+(9682, 12, 635.06, -153.25, -70.32, 3000, ''),
+(9682, 13, 635.06, -153.25, -70.32, 1500, ''),
+(9682, 14, 655.25, -172.39, -73.72, 0, ''),
+(9682, 15, 654.79, -226.30, -83.06, 0, ''),
+(9682, 16, 622.85, -268.85, -83.96, 0, ''),
+(9682, 17, 579.45, -275.56, -80.44, 0, ''),
+(9682, 18, 561.19, -266.85, -75.59, 0, ''),
+(9682, 19, 547.91, -253.92, -70.34, 0, ''),
+(9682, 20, 549.20, -252.40, -70.34, 0, ''),
+(9682, 21, 549.20, -252.40, -70.34, 4000, ''),
+(9682, 22, 555.33, -269.16, -74.40, 0, ''),
+(9682, 23, 554.31, -270.88, -74.40, 0, ''),
+(9682, 24, 554.31, -270.88, -74.40, 4000, ''),
+(9682, 25, 536.10, -249.60, -67.47, 0, ''),
+(9682, 26, 520.94, -216.65, -59.28, 0, ''),
+(9682, 27, 505.99, -148.74, -62.17, 0, ''),
+(9682, 28, 484.21, -56.24, -62.43, 0, ''),
+(9682, 29, 470.39, -6.01, -70.10, 0, ''),
+(9682, 30, 451.27, 30.85, -70.07, 0, ''),
+(9682, 31, 452.45, 29.85, -70.37, 1500, ''),
+(9682, 32, 452.45, 29.85, -70.37, 7000, ''),
+(9682, 33, 452.45, 29.85, -70.37, 10000, ''),
+(9682, 34, 451.27, 31.85, -70.07, 0, '');
+
+DELETE FROM script_waypoint WHERE entry = 9679;
+INSERT INTO script_waypoint VALUES
+(9679, 0, 549.21, -281.07, -75.27, 0, ''),
+(9679, 1, 554.39, -267.39, -73.68, 0, ''),
+(9679, 2, 533.59, -249.38, -67.04, 0, ''),
+(9679, 3, 519.44, -217.02, -59.34, 0, ''),
+(9679, 4, 506.55, -153.49, -62.34, 0, '');
 
 -- EOF
 

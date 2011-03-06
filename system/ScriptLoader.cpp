@@ -14,6 +14,7 @@ extern void AddSC_zero_scripts();
 //world
 extern void AddSC_areatrigger_scripts();
 extern void AddSC_boss_emeriss();
+extern void AddSC_boss_lethon();
 extern void AddSC_boss_lord_kazzak();
 extern void AddSC_boss_taerar();
 extern void AddSC_boss_ysondre();
@@ -50,7 +51,7 @@ extern void AddSC_boss_gyth();
 extern void AddSC_boss_rend_blackhand();
 extern void AddSC_instance_blackrock_spire();
 extern void AddSC_boss_razorgore();                         //blackwing_lair
-extern void AddSC_boss_vael();
+extern void AddSC_boss_vaelastrasz();
 extern void AddSC_boss_broodlord();
 extern void AddSC_boss_firemaw();
 extern void AddSC_boss_ebonroc();
@@ -101,15 +102,8 @@ extern void AddSC_boss_mograine_and_whitemane();
 extern void AddSC_instance_scarlet_monastery();
 extern void AddSC_boss_darkmaster_gandling();               //scholomance
 extern void AddSC_boss_death_knight_darkreaver();
-extern void AddSC_boss_theolenkrastinov();
-extern void AddSC_boss_illuciabarov();
-extern void AddSC_boss_instructormalicia();
 extern void AddSC_boss_jandicebarov();
 extern void AddSC_boss_kormok();
-extern void AddSC_boss_lordalexeibarov();
-extern void AddSC_boss_lorekeeperpolkelt();
-extern void AddSC_boss_rasfrost();
-extern void AddSC_boss_theravenian();
 extern void AddSC_boss_vectus();
 extern void AddSC_instance_scholomance();
 extern void AddSC_shadowfang_keep();                        //shadowfang_keep
@@ -128,8 +122,10 @@ extern void AddSC_instance_stratholme();
 extern void AddSC_stratholme();
 extern void AddSC_instance_sunken_temple();                 //sunken_temple
 extern void AddSC_sunken_temple();
-extern void AddSC_boss_ironaya();                           //uldaman
+extern void AddSC_boss_archaedas();                         //uldaman 
+extern void AddSC_boss_ironaya();
 extern void AddSC_uldaman();
+extern void AddSC_instance_uldaman();
 extern void AddSC_boss_arlokk();                            //zulgurub
 extern void AddSC_boss_gahzranka();
 extern void AddSC_boss_grilek();
@@ -171,6 +167,8 @@ extern void AddSC_wetlands();
 
 //kalimdor
 extern void AddSC_instance_blackfathom_deeps();             //blackfathom_deeps
+extern void AddSC_dire_maul();                              //dire_maul
+extern void AddSC_instance_dire_maul();
 extern void AddSC_boss_celebras_the_cursed();               //maraudon
 extern void AddSC_boss_landslide();
 extern void AddSC_boss_noxxion();
@@ -180,8 +178,11 @@ extern void AddSC_boss_amnennar_the_coldbringer();          //razorfen_downs
 extern void AddSC_razorfen_downs();
 extern void AddSC_instance_razorfen_kraul();                //razorfen_kraul
 extern void AddSC_boss_ayamiss();                           //ruins_of_ahnqiraj
+extern void AddSC_boss_buru(); 
 extern void AddSC_boss_kurinnaxx();
 extern void AddSC_boss_moam();
+extern void AddSC_boss_ossirian();
+extern void AddSC_boss_rajaxx();
 extern void AddSC_ruins_of_ahnqiraj();
 extern void AddSC_boss_cthun();                             //temple_of_ahnqiraj
 extern void AddSC_boss_fankriss();
@@ -192,7 +193,8 @@ extern void AddSC_boss_skeram();
 extern void AddSC_boss_twinemperors();
 extern void AddSC_mob_anubisath_sentinel();
 extern void AddSC_instance_temple_of_ahnqiraj();
-extern void AddSC_instance_wailing_caverns();               // Wailing Caverns
+extern void AddSC_wailing_caverns();                        //wailing_caverns
+extern void AddSC_instance_wailing_caverns();
 extern void AddSC_zulfarrak();                              //zulfarrak
 extern void AddSC_instance_zulfarrak();
 extern void AddSC_boss_zumrah();
@@ -229,6 +231,7 @@ void AddScripts()
     //world
     AddSC_areatrigger_scripts();
     AddSC_boss_emeriss();
+    AddSC_boss_lethon();
     AddSC_boss_lord_kazzak();
     AddSC_boss_taerar();
     AddSC_boss_ysondre();
@@ -265,7 +268,7 @@ void AddScripts()
     AddSC_boss_rend_blackhand();
     AddSC_instance_blackrock_spire();
     AddSC_boss_razorgore();                                 //blackwing_lair
-    AddSC_boss_vael();
+    AddSC_boss_vaelastrasz();
     AddSC_boss_broodlord();
     AddSC_boss_firemaw();
     AddSC_boss_ebonroc();
@@ -316,15 +319,8 @@ void AddScripts()
     AddSC_instance_scarlet_monastery();
     AddSC_boss_darkmaster_gandling();                       //scholomance
     AddSC_boss_death_knight_darkreaver();
-    AddSC_boss_theolenkrastinov();
-    AddSC_boss_illuciabarov();
-    AddSC_boss_instructormalicia();
     AddSC_boss_jandicebarov();
     AddSC_boss_kormok();
-    AddSC_boss_lordalexeibarov();
-    AddSC_boss_lorekeeperpolkelt();
-    AddSC_boss_rasfrost();
-    AddSC_boss_theravenian();
     AddSC_boss_vectus();
     AddSC_instance_scholomance();
     AddSC_shadowfang_keep();                                //shadowfang_keep
@@ -343,8 +339,10 @@ void AddScripts()
     AddSC_stratholme();
     AddSC_instance_sunken_temple();                         //sunken_temple
     AddSC_sunken_temple();
-    AddSC_boss_ironaya();                                   //uldaman
+    AddSC_boss_archaedas();                                 //uldaman 
+    AddSC_boss_ironaya();
     AddSC_uldaman();
+    AddSC_instance_uldaman();
     AddSC_boss_arlokk();                                    //zulgurub
     AddSC_boss_gahzranka();
     AddSC_boss_grilek();
@@ -385,6 +383,8 @@ void AddScripts()
 
     //kalimdor
     AddSC_instance_blackfathom_deeps();                     //blackfathom_deeps
+    AddSC_dire_maul();                                      //dire_maul
+    AddSC_instance_dire_maul();
     AddSC_boss_celebras_the_cursed();                       //maraudon
     AddSC_boss_landslide();
     AddSC_boss_noxxion();
@@ -394,8 +394,11 @@ void AddScripts()
     AddSC_razorfen_downs();
     AddSC_instance_razorfen_kraul();                        //razorfen_kraul
     AddSC_boss_ayamiss();                                   //ruins_of_ahnqiraj
+    AddSC_boss_buru(); 
     AddSC_boss_kurinnaxx();
     AddSC_boss_moam();
+    AddSC_boss_ossirian();
+    AddSC_boss_rajaxx();
     AddSC_ruins_of_ahnqiraj();
     AddSC_boss_cthun();                                     //temple_of_ahnqiraj
     AddSC_boss_fankriss();
@@ -406,8 +409,9 @@ void AddScripts()
     AddSC_boss_twinemperors();
     AddSC_mob_anubisath_sentinel();
     AddSC_instance_temple_of_ahnqiraj();
-    AddSC_instance_wailing_caverns();                       // Wailing Caverns
-    AddSC_zulfarrak();                                     //zulfarrak
+    AddSC_wailing_caverns();                                //wailing_caverns
+    AddSC_instance_wailing_caverns();
+    AddSC_zulfarrak();                                      //zulfarrak
     AddSC_instance_zulfarrak();
     AddSC_boss_zumrah();
 

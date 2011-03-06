@@ -1,4 +1,4 @@
-/* Copyright (C) 2006 - 2010 ScriptDev2 <https://scriptdev2.svn.sourceforge.net/>
+/* Copyright (C) 2006 - 2011 ScriptDev2 <https://scriptdev2.svn.sourceforge.net/>
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
@@ -34,17 +34,17 @@ EndContentData */
 
 enum Galen
 {
-    QUEST_GALENS_ESCAPE     = 1393,
+    QUEST_GALENS_ESCAPE   = 1393,
 
-    GO_GALENS_CAGE          = 37118,
+    GO_GALENS_CAGE        = 37118,
 
-    SAY_PERIODIC            = -1000588,
-    SAY_QUEST_ACCEPTED      = -1000587,
-    SAY_ATTACKED_1          = -1000586,
-    SAY_ATTACKED_2          = -1000585,
-    SAY_QUEST_COMPLETE      = -1000584,
-    EMOTE_WHISPER           = -1000583,
-    EMOTE_DISAPPEAR         = -1000582
+    SAY_PERIODIC          = -1000588,
+    SAY_QUEST_ACCEPTED    = -1000587,
+    SAY_ATTACKED_1        = -1000586,
+    SAY_ATTACKED_2        = -1000585,
+    SAY_QUEST_COMPLETE    = -1000584,
+    EMOTE_WHISPER         = -1000583,
+    EMOTE_DISAPPEAR       = -1000582
 };
 
 struct MANGOS_DLL_DECL npc_galen_goodwardAI : public npc_escortAI
@@ -140,7 +140,7 @@ bool QuestAccept_npc_galen_goodward(Player* pPlayer, Creature* pCreature, const 
 
         if (npc_galen_goodwardAI* pEscortAI = dynamic_cast<npc_galen_goodwardAI*>(pCreature->AI()))
         {
-            pEscortAI->Start(true, false, pPlayer->GetGUID(), pQuest);
+            pEscortAI->Start(false, pPlayer->GetGUID(), pQuest);
             pCreature->setFaction(FACTION_ESCORT_N_NEUTRAL_ACTIVE);
             DoScriptText(SAY_QUEST_ACCEPTED, pCreature);
         }
@@ -155,11 +155,11 @@ CreatureAI* GetAI_npc_galen_goodward(Creature* pCreature)
 
 void AddSC_swamp_of_sorrows()
 {
-    Script* newscript;
+    Script* pNewScript;
 
-    newscript = new Script;
-    newscript->Name = "npc_galen_goodward";
-    newscript->GetAI = &GetAI_npc_galen_goodward;
-    newscript->pQuestAcceptNPC = &QuestAccept_npc_galen_goodward;
-    newscript->RegisterSelf();
+    pNewScript = new Script;
+    pNewScript->Name = "npc_galen_goodward";
+    pNewScript->GetAI = &GetAI_npc_galen_goodward;
+    pNewScript->pQuestAcceptNPC = &QuestAccept_npc_galen_goodward;
+    pNewScript->RegisterSelf();
 }

@@ -17,15 +17,37 @@
 /* ScriptData
 SDName: Mulgore
 SD%Complete: 100
-SDComment: Quest support: Skorn Whitecloud: Just a story if not rewarded for quest
+SDComment: Quest support: 772, Skorn Whitecloud: Just a story if not rewarded for quest
 SDCategory: Mulgore
 EndScriptData */
 
 /* ContentData
+npc_plains_vision
 npc_skorn_whitecloud
 EndContentData */
 
 #include "precompiled.h"
+#include "escort_ai.h"
+
+/*#####
+# npc_plains_vision
+######*/
+
+struct MANGOS_DLL_DECL npc_plains_visionAI : public npc_escortAI
+{
+    npc_plains_visionAI(Creature* pCreature) : npc_escortAI(pCreature) { Reset(); }
+
+    void Reset() { Start(); }
+
+    void WaypointReached(uint32 uiWp)
+    {
+        if(uiWp==49)
+        {
+            m_creature->SetDeathState(JUST_DIED);
+            m_creature->RemoveCorpse();
+        }
+    }
+};
 
 /*######
 # npc_skorn_whitecloud
@@ -52,13 +74,23 @@ bool GossipSelect_npc_skorn_whitecloud(Player* pPlayer, Creature* pCreature, uin
     return true;
 }
 
+CreatureAI* GetAI_npc_plains_vision(Creature* pCreature)
+{
+    return new npc_plains_visionAI(pCreature);
+}
+
 void AddSC_mulgore()
 {
-    Script *newscript;
+    Script* pNewScript;
 
-    newscript = new Script;
-    newscript->Name = "npc_skorn_whitecloud";
-    newscript->pGossipHello = &GossipHello_npc_skorn_whitecloud;
-    newscript->pGossipSelect = &GossipSelect_npc_skorn_whitecloud;
-    newscript->RegisterSelf();
+    pNewScript = new Script;
+    pNewScript->Name = "npc_plains_vision";
+    pNewScript->GetAI = &GetAI_npc_plains_vision;
+    pNewScript->RegisterSelf();
+
+    pNewScript = new Script;
+    pNewScript->Name = "npc_skorn_whitecloud";
+    pNewScript->pGossipHello = &GossipHello_npc_skorn_whitecloud;
+    pNewScript->pGossipSelect = &GossipSelect_npc_skorn_whitecloud;
+    pNewScript->RegisterSelf();
 }

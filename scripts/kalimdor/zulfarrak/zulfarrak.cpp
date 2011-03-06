@@ -41,6 +41,7 @@ enum
     SPELL_SHIELD_BASH = 11972,
     SPELL_REVENGE     = 12170
 };
+
 #define GOSSIP_BLY                  "That's it! I'm tired of helping you out. It's time we settled things on the battlefield!"
 
 //find Bly's gossip menus
@@ -236,7 +237,7 @@ bool ProcessEventId_event_go_zulfarrak_gong(uint32 uiEventId, Object* pSource, O
     return false;
 }
 
-bool AreaTrigger_at_zulfarrak(Player* pPlayer, AreaTriggerEntry const *pAt)
+bool AreaTrigger_at_zulfarrak(Player* pPlayer, AreaTriggerEntry const* pAt)
 {
     if (pAt->id == AREATRIGGER_ANTUSUL)
     {
