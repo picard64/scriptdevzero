@@ -156,7 +156,7 @@ struct MANGOS_DLL_DECL npc_deathstalker_erlandAI : public npc_escortAI
                 break;
             case 14:
                 if (Unit* pRane = m_creature->GetMap()->GetUnit( uiRaneGUID))
-                    DoScriptText(SAY_RANE, pRane, m_creature);
+                    DoScriptText(SAY_RANE, pRane);
                 break;
             case 15:
                 DoScriptText(SAY_RANE_REPLY, m_creature);
@@ -169,7 +169,7 @@ struct MANGOS_DLL_DECL npc_deathstalker_erlandAI : public npc_escortAI
                 break;
             case 25:
                 if (Unit* pQuinn = m_creature->GetMap()->GetUnit( uiQuinnGUID))
-                    DoScriptText(SAY_QUINN_REPLY, pQuinn, m_creature);
+                    DoScriptText(SAY_QUINN_REPLY, pQuinn);
                 break;
             case 26:
                 DoScriptText(SAY_BYE, m_creature);
