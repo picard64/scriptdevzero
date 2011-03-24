@@ -211,13 +211,14 @@ struct MANGOS_DLL_DECL npc_taskmaster_fizzuleAI : public ScriptedAI
     uint32 factionNorm;
     bool IsFriend;
     uint32 Reset_Timer;
-    uint8 FlareCount;
+    uint8 FlareCount, FollyCount;
 
     void Reset()
     {
         IsFriend = false;
         Reset_Timer = 120000;
         FlareCount = 0;
+        FollyCount = 0;
         m_creature->setFaction(factionNorm);
     }
 
@@ -236,12 +237,26 @@ struct MANGOS_DLL_DECL npc_taskmaster_fizzuleAI : public ScriptedAI
 
     void SpellHit(Unit *caster, const SpellEntry *spell)
     {
-        if (spell->Id == SPELL_FLARE || spell->Id == SPELL_FOLLY)
+        if (spell->Id == SPELL_FLARE)
         {
             ++FlareCount;
 
             if (FlareCount >= 2)
                 IsFriend = true;
+        }
+        if (spell->Id == SPELL_FOLLY)
+        {
+            ++FlareCount;
+
+            if (FlareCount == 2)
+            {
+                IsFriend = true;
+
+                if (m_creature->getFaction() == FACTION_FRIENDLY_F)
+                    return;
+
+                DoFriend();
+            }
         }
     }
 
