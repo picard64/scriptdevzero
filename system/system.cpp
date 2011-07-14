@@ -7,6 +7,7 @@
 #include "ProgressBar.h"
 #include "ObjectMgr.h"
 #include "Database/DatabaseEnv.h"
+#include "../config.h"
 
 DatabaseType SD0Database;
 std::string  strSD0Version;
@@ -36,11 +37,14 @@ void SystemMgr::LoadVersion()
         outstring_log("");
 
         delete pResult;
+
+        strSD0Version.append(" ").append(_FULLVERSION);
     }
     else
     {
         error_log("SD2: Missing `sd0_db_version` information.");
         outstring_log("");
+        strSD0Version = _FULLVERSION;
     }
 }
 
