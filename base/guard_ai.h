@@ -1,4 +1,4 @@
-/* Copyright (C) 2006 - 2011 ScriptDev2 <https://scriptdev2.svn.sourceforge.net/>
+/* Copyright (C) 2006 - 2011 ScriptDev2 <http://www.scriptdev2.com/>
  * This program is free software licensed under GPL version 2
  * Please see the included DOCS/LICENSE.TXT for more information */
 
@@ -14,14 +14,6 @@ enum
     SAY_GUARD_SIL_AGGRO3            = -1000200,
 
     NPC_CENARION_INFANTRY           = 15184
-};
-
-enum eShattrathGuard
-{
-    SPELL_BANISHED_SHATTRATH_A      = 36642,
-    SPELL_BANISHED_SHATTRATH_S      = 36671,
-    SPELL_BANISH_TELEPORT           = 36643,
-    SPELL_EXILE                     = 39533
 };
 
 struct MANGOS_DLL_DECL guardAI : public ScriptedAI

@@ -1,4 +1,4 @@
-/* Copyright (C) 2006 - 2011 ScriptDev2 <https://scriptdev2.svn.sourceforge.net/>
+/* Copyright (C) 2006 - 2011 ScriptDev2 <http://www.scriptdev2.com/>
 * This program is free software licensed under GPL version 2
 * Please see the included DOCS/LICENSE.TXT for more information */
 
@@ -7,6 +7,7 @@
 #include "ProgressBar.h"
 #include "ObjectMgr.h"
 #include "Database/DatabaseEnv.h"
+#include "../config.h"
 
 DatabaseType SD0Database;
 std::string  strSD0Version;
@@ -36,11 +37,14 @@ void SystemMgr::LoadVersion()
         outstring_log("");
 
         delete pResult;
+
+        strSD0Version.append(" ").append(_FULLVERSION);
     }
     else
     {
         error_log("SD2: Missing `sd0_db_version` information.");
         outstring_log("");
+        strSD0Version = _FULLVERSION;
     }
 }
 
@@ -55,7 +59,7 @@ void SystemMgr::LoadScriptTexts()
 
     if (pResult)
     {
-        barGoLink bar(pResult->GetRowCount());
+        BarGoLink bar(pResult->GetRowCount());
         uint32 uiCount = 0;
 
         do
@@ -99,7 +103,7 @@ void SystemMgr::LoadScriptTexts()
     }
     else
     {
-        barGoLink bar(1);
+        BarGoLink bar(1);
         bar.step();
         outstring_log("");
         outstring_log(">> Loaded 0 additional Script Texts data. DB table `script_texts` is empty.");
@@ -117,7 +121,7 @@ void SystemMgr::LoadScriptTextsCustom()
 
     if (pResult)
     {
-        barGoLink bar(pResult->GetRowCount());
+        BarGoLink bar(pResult->GetRowCount());
         uint32 uiCount = 0;
 
         do
@@ -161,7 +165,7 @@ void SystemMgr::LoadScriptTextsCustom()
     }
     else
     {
-        barGoLink bar(1);
+        BarGoLink bar(1);
         bar.step();
         outstring_log("");
         outstring_log(">> Loaded 0 additional Custom Texts data. DB table `custom_texts` is empty.");
@@ -189,13 +193,13 @@ void SystemMgr::LoadScriptWaypoints()
         delete pResult;
     }
 
-    outstring_log("SD2: Loading Script Waypoints for %u creature(s)...", uiCreatureCount);
+    outstring_log("SD2: Loading Script Waypoints for " UI64FMTD " creature(s)...", uiCreatureCount);
 
     pResult = SD0Database.PQuery("SELECT entry, pointid, location_x, location_y, location_z, waittime FROM script_waypoint ORDER BY pointid");
 
     if (pResult)
     {
-        barGoLink bar(pResult->GetRowCount());
+        BarGoLink bar(pResult->GetRowCount());
         uint32 uiNodeCount = 0;
 
         do
@@ -234,7 +238,7 @@ void SystemMgr::LoadScriptWaypoints()
     }
     else
     {
-        barGoLink bar(1);
+        BarGoLink bar(1);
         bar.step();
         outstring_log("");
         outstring_log(">> Loaded 0 Script Waypoints. DB table `script_waypoint` is empty.");

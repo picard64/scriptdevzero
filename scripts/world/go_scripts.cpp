@@ -1,4 +1,4 @@
-/* Copyright (C) 2006 - 2011 ScriptDev2 <https://scriptdev2.svn.sourceforge.net/>
+/* Copyright (C) 2006 - 2011 ScriptDev2 <http://www.scriptdev2.com/>
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
@@ -17,12 +17,13 @@
 /* ScriptData
 SDName: GO_Scripts
 SD%Complete: 100
-SDComment: Quest support: 4285,4287,4288(crystal pylons), 4296, 5088, 6481, 10990, 10991, 10992. Field_Repair_Bot->Teaches spell 22704. Barov_journal->Teaches spell 26089
+SDComment: Quest support: 4285,4287,4288(crystal pylons), 4296, 5088, 5097, 5098, 5381, 6481. Field_Repair_Bot->Teaches spell 22704. Barov_journal->Teaches spell 26089
 SDCategory: Game Objects
 EndScriptData */
 
 /* ContentData
 go_cat_figurine (the "trap" version of GO, two different exist)
+go_northern_crystal_pylon
 go_eastern_crystal_pylon
 go_western_crystal_pylon
 go_barov_journal
@@ -32,6 +33,8 @@ go_resonite_cask
 go_sacred_fire_of_life
 go_tablet_of_madness
 go_tablet_of_the_seven
+go_andorhal_tower
+go_hand_of_iruxos_crystal
 EndContentData */
 
 #include "precompiled.h"
@@ -55,6 +58,19 @@ bool GOUse_go_cat_figurine(Player* pPlayer, GameObject* pGo)
 ## go_crystal_pylons (3x)
 ######*/
 
+bool GOUse_go_northern_crystal_pylon(Player* pPlayer, GameObject* pGo)
+{
+    if (pGo->GetGoType() == GAMEOBJECT_TYPE_QUESTGIVER)
+    {
+        pPlayer->PrepareQuestMenu(pGo->GetGUID());
+        pPlayer->SendPreparedQuest(pGo->GetGUID());
+    }
+
+    if (pPlayer->GetQuestStatus(4285) == QUEST_STATUS_INCOMPLETE)
+        pPlayer->AreaExploredOrEventHappens(4285);
+
+    return true;
+}
 
 bool GOUse_go_eastern_crystal_pylon(Player* pPlayer, GameObject* pGo)
 {
@@ -207,6 +223,65 @@ bool GOUse_go_tablet_of_the_seven(Player* pPlayer, GameObject* pGo)
     return true;
 }
 
+/*######
+## go_andorhal_tower
+######*/
+
+enum
+{
+    QUEST_ALL_ALONG_THE_WATCHTOWERS_ALLIANCE = 5097,
+    QUEST_ALL_ALONG_THE_WATCHTOWERS_HORDE    = 5098,
+    NPC_ANDORHAL_TOWER_1                     = 10902,
+    NPC_ANDORHAL_TOWER_2                     = 10903,
+    NPC_ANDORHAL_TOWER_3                     = 10904,
+    NPC_ANDORHAL_TOWER_4                     = 10905,
+    GO_ANDORHAL_TOWER_1                      = 176094,
+    GO_ANDORHAL_TOWER_2                      = 176095,
+    GO_ANDORHAL_TOWER_3                      = 176096,
+    GO_ANDORHAL_TOWER_4                      = 176097
+};
+
+bool GOUse_go_andorhal_tower(Player* pPlayer, GameObject* pGo)
+{
+    if (pPlayer->GetQuestStatus(QUEST_ALL_ALONG_THE_WATCHTOWERS_ALLIANCE) == QUEST_STATUS_INCOMPLETE || pPlayer->GetQuestStatus(QUEST_ALL_ALONG_THE_WATCHTOWERS_HORDE) == QUEST_STATUS_INCOMPLETE)
+    {
+        uint32 uiKillCredit = 0;
+        switch(pGo->GetEntry())
+        {
+            case GO_ANDORHAL_TOWER_1:   uiKillCredit = NPC_ANDORHAL_TOWER_1;   break;
+            case GO_ANDORHAL_TOWER_2:   uiKillCredit = NPC_ANDORHAL_TOWER_2;   break;
+            case GO_ANDORHAL_TOWER_3:   uiKillCredit = NPC_ANDORHAL_TOWER_3;   break;
+            case GO_ANDORHAL_TOWER_4:   uiKillCredit = NPC_ANDORHAL_TOWER_4;   break;
+        }
+        if (uiKillCredit)
+            pPlayer->KilledMonsterCredit(uiKillCredit);
+    }
+    return true;
+}
+
+/*######
+## go_hand_of_iruxos_crystal
+######*/
+
+/* TODO
+ * Actually this script is extremely vague, but as long as there is no valid information
+ * hidden in some dark places, this will be the best we can do here :(
+ * Do not consider this a well proven script.
+ */
+
+enum
+{
+    // QUEST_HAND_OF_IRUXOS     = 5381,
+    NPC_IRUXOS                  = 11876,
+};
+
+bool GOUse_go_hand_of_iruxos_crystal(Player* pPlayer, GameObject* pGo)
+{
+    if (Creature* pIruxos = pGo->SummonCreature(NPC_IRUXOS, 0.0f, 0.0f, 0.0f, pPlayer->GetOrientation() + M_PI_F, TEMPSUMMON_TIMED_DESPAWN_OUT_OF_COMBAT, 20000))
+        pIruxos->AI()->AttackStart(pPlayer);
+
+    return false;
+}
 
 void AddSC_go_scripts()
 {
@@ -215,6 +290,11 @@ void AddSC_go_scripts()
     pNewScript = new Script;
     pNewScript->Name = "go_cat_figurine";
     pNewScript->pGOUse = &GOUse_go_cat_figurine;
+    pNewScript->RegisterSelf();
+
+    pNewScript = new Script;
+    pNewScript->Name = "go_northern_crystal_pylon";
+    pNewScript->pGOUse = &GOUse_go_northern_crystal_pylon;
     pNewScript->RegisterSelf();
 
     pNewScript = new Script;
@@ -267,4 +347,13 @@ void AddSC_go_scripts()
     pNewScript->pGOUse = &GOUse_go_tablet_of_the_seven;
     pNewScript->RegisterSelf();
 
+    pNewScript = new Script;
+    pNewScript->Name = "go_andorhal_tower";
+    pNewScript->pGOUse = &GOUse_go_andorhal_tower;
+    pNewScript->RegisterSelf();
+
+    pNewScript = new Script;
+    pNewScript->Name = "go_hand_of_iruxos_crystal";
+    pNewScript->pGOUse = &GOUse_go_hand_of_iruxos_crystal;
+    pNewScript->RegisterSelf();
 }

@@ -604,7 +604,9 @@ INSERT INTO script_texts (entry,content_default,sound,type,language,emote,commen
 (-1000585,'Help! I\'m under attack!',0,0,0,0,'Galen - aggro 2'),
 (-1000586,'Thank you $N. I will remember you always. You can find my strongbox in my camp, north of Stonard.',0,0,0,0,'Galen - quest complete'),
 (-1000587,'%s whispers to $N the secret to opening his strongbox.',0,2,0,0,'Galen - emote whisper'),
-(-1000588,'%s disappears into the swamp.',0,2,0,0,'Galen - emote disapper');
+(-1000588,'%s disappears into the swamp.',0,2,0,0,'Galen - emote disapper'),
+
+(-1000589,'Kroshius live? Kroshius crush!',0,1,0,0,'SAY_KROSHIUS_REVIVE');
 
 -- -1 033 000 SHADOWFANG KEEP
 INSERT INTO script_texts (entry,content_default,sound,type,language,emote,comment) VALUES
@@ -823,7 +825,7 @@ INSERT INTO script_texts (entry,content_default,sound,type,language,emote,commen
 -- -1 309 000 ZUL'GURUB
 INSERT INTO script_texts (entry,content_default,sound,type,language,emote,comment) VALUES
 (-1309000,'Let the coils of hate unfurl!',8421,1,0,0,'venoxis SAY_TRANSFORM'),
-(-1309001,'Ssserenity..at lassst!',0,1,0,0,'venoxis SAY_DEATH'),
+(-1309001,'Ssserenity... at lassst!',0,1,0,0,'venoxis SAY_DEATH'),
 
 (-1309002,'Lord Hir\'eek, grant me wings of vengance!',8417,1,0,0,'jeklik SAY_AGGRO'),
 (-1309003,'I command you to rain fire down upon these invaders!',0,1,0,0,'jeklik SAY_RAIN_FIRE'),
@@ -851,8 +853,8 @@ INSERT INTO script_texts (entry,content_default,sound,type,language,emote,commen
 
 (-1309020,'PRIDE HERALDS THE END OF YOUR WORLD. COME, MORTALS! FACE THE WRATH OF THE SOULFLAYER!',8414,1,0,0,'hakkar SAY_AGGRO'),
 (-1309021,'Fleeing will do you no good, mortals!',0,1,0,0,'hakkar SAY_FLEEING'),
-(-1309022,'You dare set foot upon Hakkari holy ground? Minions of Hakkar, destroy the infidels!',0,1,0,0,'hakkar SAY_MINION_DESTROY'),
-(-1309023,'Minions of Hakkar, hear your God. The sanctity of this temple has been compromised. Invaders encroach upon holy ground! The Altar of Blood must be protected. Kill them all!',0,1,0,0,'hakkar SAY_PROTECT_ALTAR'),
+(-1309022,'You dare set foot upon Hakkari holy ground? Minions of Hakkar, destroy the infidels!',0,6,0,0,'hakkar SAY_MINION_DESTROY'),
+(-1309023,'Minions of Hakkar, hear your God. The sanctity of this temple has been compromised. Invaders encroach upon holy ground! The Altar of Blood must be protected. Kill them all!',0,6,0,0,'hakkar SAY_PROTECT_ALTAR'),
 
 (-1309024,'%s goes into a rage after seeing his raptor fall in battle!',0,2,0,0,'mandokir EMOTE_RAGE');
 
@@ -866,7 +868,16 @@ INSERT INTO script_texts (entry,content_default,sound,type,language,emote,commen
 (-1329004,'An Ash\'ari Crystal has fallen! Stay true to the Lich King, my brethren, and attempt to resummon it.',0,6,0,0,'thuzadin acolyte SAY_ANNOUNCE_ZIGGURAT_1'),
 (-1329005,'One of the Ash\'ari Crystals has been destroyed! Slay the intruders!',0,6,0,0,'thuzadin acolyte SAY_ANNOUNCE_ZIGGURAT_2'),
 (-1329006,'An Ash\'ari Crystal has been toppled! Restore the ziggurat before the Necropolis is vulnerable!',0,6,0,0,'thuzadin acolyte SAY_ANNOUNCE_ZIGGURAT_3'),
-(-1329007,'The Ash\'ari Crystals have been destroyed! The Slaughterhouse is vulnerable!',0,6,0,0,'baron rivendare SAY_ANNOUNCE_RIVENDARE');
+(-1329007,'The Ash\'ari Crystals have been destroyed! The Slaughterhouse is vulnerable!',0,6,0,0,'baron rivendare SAY_ANNOUNCE_RIVENDARE'),
+
+(-1329008,'Intruders at the Service Gate! Lord Rivendare must be warned!',0,6,0,0,'barthilas SAY_WARN_BARON'),
+(-1329009,'Intruders! More pawns of the Argent Dawn, no doubt. I already count one of their number among my prisoners. Withdraw from my domain before she is executed!',0,6,0,0,'baron rivendare SAY_ANNOUNCE_RUN_START'),
+(-1329010,'You\'re still here? Your foolishness is amusing! The Argent Dawn wench needn\'t suffer in vain. Leave at once and she shall be spared!',0,6,0,0,'baron rivendare SAY_ANNOUNCE_RUN_10_MIN'),
+(-1329011,'I shall take great pleasure in taking this poor wretch\'s life! It\'s not too late, she needn\'t suffer in vain. Turn back and her death shall be merciful!',0,6,0,0,'baron rivendare SAY_ANNOUNCE_RUN_5_MIN'),
+(-1329012,'May this prisoner\'s death serve as a warning. None shall defy the Scourge and live!',0,6,0,0,'baron rivendare SAY_ANNOUNCE_RUN_FAIL'),
+(-1329013,'So you see fit to toy with the Lich King\'s creations? Ramstein, be sure to give the intruders a proper greeting.',0,6,0,0,'baron rivendare SAY_ANNOUNCE_RAMSTEIN'),
+(-1329014,'Time to take matters into my own hands. Come. Enter my domain and challenge the might of the Scourge!',0,6,0,0,'baron rivendare SAY_UNDEAD_DEFEAT'),
+(-1329015,'You did it... you\'ve slain Baron Rivendare! The Argent Dawn shall hear of your valiant deeds!',0,0,0,0,'ysida SAY_EPILOGUE');
 
 -- -1 349 000 MARAUDON
 
@@ -903,6 +914,9 @@ INSERT INTO script_texts (entry,content_default,sound,type,language,emote,commen
 (-1409022,'My flame! Please don\'t take away my flame... ',8042,1,0,0,'ragnaros SAY_ARRIVAL4_MAJ');
 
 -- -1 429 000 DIRE MAUL
+INSERT INTO script_texts (entry,content_default,sound,type,language,emote,comment) VALUES
+(-1429000,'The demon is loose! Quickly we must restrain him!',0,6,0,0,'highborne summoner SAY_FREE_IMMOLTHAR'),
+(-1429001,'Who dares disrupt the sanctity of Eldre\'Thalas? Face me, cowards!',0,6,0,0,'prince tortheldrin SAY_KILL_IMMOLTHAR');
 
 -- -1 469 000 BLACKWING LAIR
 INSERT INTO script_texts (entry,content_default,sound,type,language,emote,comment) VALUES
@@ -2388,5 +2402,26 @@ INSERT INTO script_waypoint VALUES
 (9679, 3, 519.44, -217.02, -59.34, 0, ''),
 (9679, 4, 506.55, -153.49, -62.34, 0, '');
 
--- EOF
+DELETE FROM script_waypoint WHERE entry=5644;
+INSERT INTO script_waypoint (entry, pointid, location_x, location_y, location_z, waittime, point_comment) VALUES
+(5644, 1, -339.679, 1752.04, 139.482, 0, ''),
+(5644, 2, -328.957, 1734.95, 139.327, 0, ''),
+(5644, 3, -338.29, 1731.36, 139.327, 0, ''),
+(5644, 4, -350.747, 1731.12, 139.338, 0, ''),
+(5644, 5, -365.064, 1739.04, 139.376, 0, ''),
+(5644, 6, -371.105, 1746.03, 139.374, 0, ''),
+(5644, 7, -383.141, 1738.62, 138.93, 0, ''),
+(5644, 8, -390.445, 1733.98, 136.353, 0, ''),
+(5644, 9, -401.368, 1726.77, 131.071, 0, ''),
+(5644, 10, -416.016, 1721.19, 129.807, 0, ''),
+(5644, 11, -437.139, 1709.82, 126.342, 0, ''),
+(5644, 12, -455.83, 1695.61, 119.305, 0, ''),
+(5644, 13, -459.862, 1687.92, 116.059, 0, ''),
+(5644, 14, -463.565, 1679.1, 111.653, 0, ''),
+(5644, 15, -461.485, 1670.94, 109.033, 0, ''),
+(5644, 16, -471.786, 1647.34, 102.862, 0, ''),
+(5644, 17, -477.146, 1625.69, 98.342, 0, ''),
+(5644, 18, -475.815, 1615.815, 97.07, 0, ''),
+(5644, 19, -474.329, 1590.01, 94.4982, 0, '');
 
+-- EOF

@@ -1,4 +1,4 @@
-/* Copyright (C) 2006 - 2011 ScriptDev2 <https://scriptdev2.svn.sourceforge.net/>
+/* Copyright (C) 2006 - 2011 ScriptDev2 <http://www.scriptdev2.com/>
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
@@ -22,14 +22,8 @@ SDCategory: Spell
 EndScriptData */
 
 /* ContentData
-spell 34665
 spell 19512
 spell 8913
-spell 29528
-spell 46770
-spell 46023
-spell 47575
-spell 50706
 EndContentData */
 
 #include "precompiled.h"
